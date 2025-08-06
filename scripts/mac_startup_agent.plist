@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.metamodel.ai.assistant</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/zsh</string>
+        <string>-c</string>
+        <string>source /Users/camdouglas/meta_model/scripts/meta_profile.sh && /Users/camdouglas/meta_model/scripts/startup_daemon.sh</string>
+    </array>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <true/>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/camdouglas/meta_model/logs/startup.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/camdouglas/meta_model/logs/startup_error.log</string>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/camdouglas/meta_model</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>META_MODEL_AUTO_START</key>
+        <string>true</string>
+        <key>META_MODEL_STARTUP_MODE</key>
+        <string>daemon</string>
+    </dict>
+</dict>
+</plist> 

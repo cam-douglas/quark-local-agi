@@ -1,0 +1,45 @@
+{
+  "evaluation_timestamp": "2025-08-06T13:40:42.756622",
+  "test_suite": "intent_classification",
+  "total_tests": 3,
+  "successful_tests": 0,
+  "failed_tests": 3,
+  "accuracy": 0.0,
+  "average_latency": 0.0,
+  "total_latency": 0.0,
+  "error_rate": 1.0,
+  "total_tokens_used": 0,
+  "average_tokens_per_test": 0.0,
+  "results": [
+    {
+      "test_case_id": "intent_001",
+      "actual_output": "",
+      "expected_output": "knowledge_retrieval",
+      "success": false,
+      "accuracy_score": 0.0,
+      "latency": 0.0,
+      "tokens_used": 0,
+      "error_message": "'MetricsAgent' object has no attribute '_ensure_model'"
+    },
+    {
+      "test_case_id": "intent_002",
+      "actual_output": "",
+      "expected_output": "planning",
+      "success": false,
+      "accuracy_score": 0.0,
+      "latency": 0.0,
+      "tokens_used": 0,
+      "error_message": "'MetricsAgent' object has no attribute '_ensure_model'"
+    },
+    {
+      "test_case_id": "intent_003",
+      "actual_output": "",
+      "expected_output": "reasoning",
+      "success": false,
+      "accuracy_score": 0.0,
+      "latency": 0.0,
+      "tokens_used": 0,
+      "error_message": "'MetricsAgent' object has no attribute '_ensure_model'"
+    }
+  ]
+}

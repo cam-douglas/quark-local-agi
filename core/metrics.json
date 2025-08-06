@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": 1754273871.6154912,
+    "category": "Reasoning",
+    "agent": "ReasoningAgent",
+    "latency": 4.099671125411987,
+    "confidence": null,
+    "success": true
+  },
+  {
+    "timestamp": 1754274152.9758458,
+    "category": "Reasoning",
+    "agent": "ReasoningAgent",
+    "latency": 3.911679983139038,
+    "confidence": null,
+    "success": true
+  }
+]

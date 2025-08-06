@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+import asyncio
+
+from meta_model.model_manager import ModelManager
+from meta_model.agents.interpretation_agent import InterpretationAgent
+from meta_model.agents.leader_agent import LeaderAgent
+
+class Orchestrator:
+    def __init__(self):
+        # 1) spin up and warm all pipelines
+        self.manager = ModelManager()
+        asyncio.get_event_loop().run_until_complete(self.manager.warm_up_all())
+
+        # 2) our new two‐stage routing
+        self.interpreter = InterpretationAgent()
+        self.leader = LeaderAgent(self.manager)
+
+    def handle(self, text: str):
+        # 1) interpret raw text → intent_obj
+        intent_obj = self.interpreter.interpret(text)
+        if intent_obj.get("error"):
+            return intent_obj
+
+        # 2) leader fans out to the right models
+        return {"category": intent_obj["category"],
+                "results": self.leader.generate(intent_obj)}
+
