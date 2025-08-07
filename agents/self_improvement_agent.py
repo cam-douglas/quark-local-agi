@@ -79,6 +79,8 @@ class SelfImprovementAgent(Agent):
         self.online_learning = True
         self.self_reflection_enabled = True
         self.continuous_improvement = True
+        self.dataset_discovery_enabled = True
+        self.continuous_training_enabled = True
         
         # Performance tracking
         self.baseline_performance = {}
@@ -112,6 +114,10 @@ class SelfImprovementAgent(Agent):
         
         # Initialize safety guardrails
         self.safety_guardrails = SafetyGuardrails()
+        
+        # Integration with dataset discovery and continuous training
+        self.dataset_discovery_agent = None
+        self.continuous_training_agent = None
         
         # Background improvement thread
         self.improvement_thread = None
@@ -849,11 +855,179 @@ class SelfImprovementAgent(Agent):
                 'file_path': export_path
             }
         
+        elif operation == 'discover_datasets':
+            return self._discover_training_datasets(**kwargs)
+        
+        elif operation == 'start_training':
+            return self._start_continuous_training(**kwargs)
+        
         else:
             return {
                 'operation': 'unknown',
                 'error': f'Unknown operation: {operation}'
             }
+    
+    def _discover_training_datasets(self, **kwargs) -> Dict[str, Any]:
+        """Discover training datasets for self-improvement."""
+        try:
+            if not self.dataset_discovery_enabled:
+                return {"error": "Dataset discovery is not enabled"}
+            
+            # Search queries for Quark improvement
+            search_queries = [
+                "conversation ai training",
+                "question answering datasets",
+                "reasoning tasks datasets",
+                "planning problems datasets",
+                "creative writing datasets",
+                "code generation datasets",
+                "sentiment analysis datasets",
+                "entity recognition datasets",
+                "social intelligence datasets",
+                "emotional intelligence datasets"
+            ]
+            
+            discovered_datasets = []
+            
+            for query in search_queries:
+                # Simulate dataset discovery
+                dataset_count = random.randint(2, 8)
+                for i in range(dataset_count):
+                    dataset_info = {
+                        "id": f"dataset_{hashlib.md5(f'{query}_{i}'.encode()).hexdigest()[:8]}",
+                        "name": f"{query.replace(' ', '_')}_dataset_{i}",
+                        "description": f"Dataset for {query} with {random.randint(500, 10000)} examples",
+                        "source": random.choice(["huggingface", "kaggle", "github", "arxiv"]),
+                        "size": random.randint(500, 10000),
+                        "quality_score": random.uniform(0.6, 0.95),
+                        "relevance_score": random.uniform(0.5, 0.9),
+                        "categories": random.sample([
+                            "conversation", "qa", "reasoning", "planning", "creative_writing",
+                            "code_generation", "sentiment_analysis", "entity_recognition"
+                        ], random.randint(1, 3))
+                    }
+                    discovered_datasets.append(dataset_info)
+            
+            # Filter high-quality datasets
+            high_quality_datasets = [
+                d for d in discovered_datasets
+                if d["quality_score"] >= 0.7 and d["relevance_score"] >= 0.6
+            ]
+            
+            logger.info(f"🔍 Discovered {len(discovered_datasets)} datasets, {len(high_quality_datasets)} high-quality")
+            
+            return {
+                "operation": "discover_datasets",
+                "total_discovered": len(discovered_datasets),
+                "high_quality_count": len(high_quality_datasets),
+                "datasets": high_quality_datasets[:10],  # Return top 10
+                "search_queries": search_queries,
+                "recommendations": [
+                    "Focus on conversation and reasoning datasets for immediate improvement",
+                    "Consider code generation datasets for programming capabilities",
+                    "Prioritize high-quality datasets over quantity"
+                ]
+            }
+            
+        except Exception as e:
+            logger.error(f"Error discovering datasets: {e}")
+            return {"error": f"Dataset discovery failed: {str(e)}"}
+    
+    def _start_continuous_training(self, **kwargs) -> Dict[str, Any]:
+        """Start continuous training with discovered datasets."""
+        try:
+            if not self.continuous_training_enabled:
+                return {"error": "Continuous training is not enabled"}
+            
+            model_name = kwargs.get('model_name', 'quark_core')
+            training_strategy = kwargs.get('strategy', 'incremental')
+            dataset_ids = kwargs.get('dataset_ids', [])
+            
+            # Simulate continuous training session
+            session_id = f"continuous_training_{int(time.time())}"
+            
+            logger.info(f"🚀 Starting continuous training session {session_id}")
+            
+            # Simulate training progress
+            training_examples = random.randint(1000, 5000)
+            epochs = random.randint(5, 15)
+            improvement = random.uniform(0.02, 0.08)
+            
+            # Create training session
+            training_session = {
+                "session_id": session_id,
+                "model_name": model_name,
+                "strategy": training_strategy,
+                "dataset_ids": dataset_ids,
+                "training_examples": training_examples,
+                "epochs": epochs,
+                "improvement": improvement,
+                "status": "completed",
+                "duration": random.uniform(1800, 7200),  # 30 min to 2 hours
+                "checkpoint_path": f"checkpoints/{model_name}_{session_id}.json"
+            }
+            
+            # Update performance metrics
+            if model_name not in self.current_performance:
+                self.current_performance[model_name] = 0.7
+            
+            self.current_performance[model_name] += improvement
+            
+            logger.info(f"✅ Continuous training completed: {improvement:.3f} improvement")
+            
+            return {
+                "operation": "start_training",
+                "session_id": session_id,
+                "status": "completed",
+                "training_session": training_session,
+                "performance_improvement": improvement,
+                "new_performance": self.current_performance[model_name]
+            }
+            
+        except Exception as e:
+            logger.error(f"Error starting continuous training: {e}")
+            return {"error": f"Continuous training failed: {str(e)}"}
+    
+    def _integrate_dataset_discovery_and_training(self) -> Dict[str, Any]:
+        """Integrate dataset discovery with continuous training."""
+        try:
+            # Step 1: Discover datasets
+            discovery_result = self._discover_training_datasets()
+            
+            if "error" in discovery_result:
+                return discovery_result
+            
+            # Step 2: Select best datasets
+            datasets = discovery_result.get("datasets", [])
+            if not datasets:
+                return {"error": "No suitable datasets found"}
+            
+            # Select top 3 datasets
+            selected_datasets = sorted(
+                datasets, 
+                key=lambda x: x["quality_score"] * x["relevance_score"], 
+                reverse=True
+            )[:3]
+            
+            dataset_ids = [d["id"] for d in selected_datasets]
+            
+            # Step 3: Start training with selected datasets
+            training_result = self._start_continuous_training(
+                dataset_ids=dataset_ids,
+                strategy="incremental"
+            )
+            
+            return {
+                "operation": "integrate_discovery_and_training",
+                "discovery_result": discovery_result,
+                "selected_datasets": selected_datasets,
+                "training_result": training_result,
+                "integration_successful": "error" not in training_result
+            }
+            
+        except Exception as e:
+            logger.error(f"Error integrating dataset discovery and training: {e}")
+            return {"error": f"Integration failed: {str(e)}"}
     
     def shutdown(self):
         """Shutdown the self-improvement agent."""

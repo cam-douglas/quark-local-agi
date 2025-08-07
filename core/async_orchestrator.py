@@ -22,6 +22,8 @@ from agents.planning_agent import PlanningAgent
 from agents.memory_agent import MemoryAgent
 from agents.metrics_agent import MetricsAgent
 from agents.self_improvement_agent import SelfImprovementAgent
+from agents.code_generation_agent import CodeGenerationAgent
+from agents.coding_assistant_agent import CodingAssistantAgent
 from core.context_window_manager import ContextWindowManager
 from core.memory_eviction import MemoryEvictionManager
 from core.capability_bootstrapping import CapabilityBootstrapping
@@ -66,6 +68,8 @@ class AsyncOrchestrator:
             "Memory":     MemoryAgent(),
             "Metrics":    MetricsAgent(),
             "SelfImprovement": SelfImprovementAgent(),
+            "CodeGeneration": CodeGenerationAgent(),
+            "CodingAssistant": CodingAssistantAgent(),
         }
         
         # Initialize supporting systems
@@ -210,6 +214,7 @@ class AsyncOrchestrator:
             "Social Intelligence": ["Retrieval", "Reasoning"],
             "Autonomous Goals": ["Retrieval", "Reasoning"],
             "Governance & Ethics": ["Retrieval", "Reasoning"],
+            "Programming & Code Generation": ["CodingAssistant", "Retrieval", "Reasoning"],
         }
         return pipelines.get(category, ["Retrieval", "Reasoning"])
     

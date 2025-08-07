@@ -40,7 +40,8 @@ class SystemProtection:
             "explanation": ["explain", "describe", "clarify", "elaborate"],
             "calculation": ["calculate", "compute", "solve", "evaluate"],
             "translation": ["translate", "convert", "interpret"],
-            "summarization": ["summarize", "condense", "abbreviate"]
+            "summarization": ["summarize", "condense", "abbreviate"],
+            "user_interaction": ["process_user_input", "handle_user_input", "user_query", "user_question", "generate_response"]
         }
         
         # Define absolutely forbidden actions

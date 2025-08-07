@@ -28,6 +28,11 @@ from agents.continuous_learning_agent import ContinuousLearningAgent
 from agents.self_monitoring_agent import SelfMonitoringAgent
 from agents.rag_agent import RAGAgent
 from agents.adaptive_model_agent import AdaptiveModelAgent
+from agents.response_generation_agent import ResponseGenerationAgent
+from agents.dataset_discovery_agent import DatasetDiscoveryAgent
+from agents.continuous_training_agent import ContinuousTrainingAgent
+from agents.code_generation_agent import CodeGenerationAgent
+from agents.coding_assistant_agent import CodingAssistantAgent
 from core.context_window_manager import ContextWindowManager
 from core.memory_eviction import MemoryEvictionManager
 from core.capability_bootstrapping import CapabilityBootstrapping
@@ -61,51 +66,54 @@ class PipelineResult:
 
 # Define for each top‐level category the sequence of agents to invoke
 PIPELINES = {
-    # Core Pillars (1-10)
-    "Natural Language Understanding": ["NLU"],
-    "Knowledge Retrieval":         ["Retrieval"],
-    "Reasoning":                   ["Retrieval", "Reasoning"],
-    "Planning":                    ["Retrieval", "Reasoning", "Planning"],
-    "Memory & Context":            ["Memory", "Retrieval", "Reasoning"],
-    "Metrics & Evaluation":        ["Metrics", "Retrieval", "Reasoning"],
-    "Self-Improvement":            ["SelfImprovement", "Retrieval", "Reasoning"],
-    "Streaming & Real-Time":       ["Streaming", "Retrieval", "Reasoning"],
-    "Testing & Quality":           ["Retrieval", "Reasoning"],
-    "Deployment & Scaling":        ["Retrieval", "Reasoning"],
-    
-    # Advanced Intelligence Pillars (11-20)
-    "Async & Parallel":            ["Retrieval", "Reasoning"],
-    "Front-end & UI":              ["Retrieval", "Reasoning"],
-    "Safety & Alignment":          ["Safety", "Retrieval", "Reasoning"],
-    "Meta-Learning":               ["MetaLearning", "Retrieval", "Reasoning"],
-    "Knowledge Graphs":            ["KnowledgeGraph"],
-    "Generalized Reasoning":       ["Retrieval", "Reasoning"],
-    "Social Intelligence":          ["SocialUnderstanding", "Retrieval", "Reasoning"],
-    "Autonomous Goals":            ["AutonomousDecision", "Retrieval", "Reasoning"],
-    "Governance & Ethics":         ["Retrieval", "Reasoning"],
-    "RAG Systems":                 ["RAG", "Retrieval", "Reasoning"],
-    
-    # Superintelligence Foundation Pillars (21-30)
-    "Self-Monitoring":             ["SelfMonitoring", "Retrieval", "Reasoning"],
-    "RAG":                        ["RAG", "Retrieval", "Reasoning"],
-    "Adaptive Model Selection":    ["AdaptiveModel", "Retrieval", "Reasoning"],
-    "Advanced Reasoning":          ["Retrieval", "Reasoning"],
-    "Meta-Cognitive Abilities":    ["MetaLearning", "Retrieval", "Reasoning"],
-    "Self-Improvement Systems":    ["SelfImprovement", "Retrieval", "Reasoning"],
-    "Explainability":              ["Explainability", "Retrieval", "Reasoning"],
-    "Multi-Agent Negotiation":     ["Negotiation", "Retrieval", "Reasoning"],
-    "Tool Discovery":              ["ToolDiscovery", "Retrieval", "Reasoning"],
-    "Autonomous Decision Making":  ["AutonomousDecision", "Retrieval", "Reasoning"],
-    
-    # Advanced Intelligence Pillars (31-33)
-    "Creative Intelligence":        ["CreativeIntelligence", "Retrieval", "Reasoning"],
-    "Emotional Intelligence":      ["EmotionalIntelligence", "Retrieval", "Reasoning"],
-    "Social Understanding":        ["SocialUnderstanding", "Retrieval", "Reasoning"],
-    
-    # Continuous Learning & Monitoring
-    "Continuous Learning":         ["ContinuousLearning", "Retrieval", "Reasoning"],
-    "Self-Monitoring":             ["SelfMonitoring", "Retrieval", "Reasoning"],
-}
+        # Core Pillars (1-10)
+        "Natural Language Understanding": ["NLU", "ResponseGeneration"],
+        "Knowledge Retrieval":         ["Retrieval", "ResponseGeneration"],
+        "Reasoning":                   ["Retrieval", "Reasoning", "ResponseGeneration"],
+        "Planning":                    ["Retrieval", "Reasoning", "Planning", "ResponseGeneration"],
+        "Memory & Context":            ["Memory", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Metrics & Evaluation":        ["Metrics", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Self-Improvement":            ["SelfImprovement", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Streaming & Real-Time":       ["Streaming", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Testing & Quality":           ["Retrieval", "Reasoning", "ResponseGeneration"],
+        "Deployment & Scaling":        ["Retrieval", "Reasoning", "ResponseGeneration"],
+        
+        # Advanced Intelligence Pillars (11-20)
+        "Async & Parallel":            ["Retrieval", "Reasoning", "ResponseGeneration"],
+        "Front-end & UI":              ["Retrieval", "Reasoning", "ResponseGeneration"],
+        "Safety & Alignment":          ["Safety", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Meta-Learning":               ["MetaLearning", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Knowledge Graphs":            ["KnowledgeGraph", "ResponseGeneration"],
+        "Generalized Reasoning":       ["Retrieval", "Reasoning", "ResponseGeneration"],
+        "Social Intelligence":          ["SocialUnderstanding", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Autonomous Goals":            ["AutonomousDecision", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Governance & Ethics":         ["Retrieval", "Reasoning", "ResponseGeneration"],
+        "RAG Systems":                 ["RAG", "Retrieval", "Reasoning", "ResponseGeneration"],
+        
+        # Superintelligence Foundation Pillars (21-30)
+        "Self-Monitoring":             ["SelfMonitoring", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "RAG":                        ["RAG", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Adaptive Model Selection":    ["AdaptiveModel", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Advanced Reasoning":          ["Retrieval", "Reasoning", "ResponseGeneration"],
+        "Meta-Cognitive Abilities":    ["MetaLearning", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Self-Improvement Systems":    ["SelfImprovement", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Explainability":              ["Explainability", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Multi-Agent Negotiation":     ["Negotiation", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Tool Discovery":              ["ToolDiscovery", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Autonomous Decision Making":  ["AutonomousDecision", "Retrieval", "Reasoning", "ResponseGeneration"],
+        
+        # Advanced Intelligence Pillars (31-33)
+        "Creative Intelligence":        ["CreativeIntelligence", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Emotional Intelligence":      ["EmotionalIntelligence", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Social Understanding":        ["SocialUnderstanding", "Retrieval", "Reasoning", "ResponseGeneration"],
+        
+        # Continuous Learning & Monitoring
+        "Continuous Learning":         ["ContinuousLearning", "Retrieval", "Reasoning", "ResponseGeneration"],
+        "Self-Monitoring":             ["SelfMonitoring", "Retrieval", "Reasoning", "ResponseGeneration"],
+        
+        # Programming & Development
+        "Programming & Code Generation": ["CodingAssistant", "Retrieval", "Reasoning", "ResponseGeneration"],
+    }
 
 # Define which agents can run in parallel
 PARALLEL_AGENTS = {
@@ -118,6 +126,8 @@ PARALLEL_AGENTS = {
     "SelfMonitoring": True,
     "ContinuousLearning": True,
     "AdaptiveModel": True,
+    "CodeGeneration": False,  # Sequential due to code generation complexity
+    "CodingAssistant": False,  # Sequential due to natural language processing
     
     # Sequential agents due to dependencies or complexity
     "NLU": False,  # Sequential due to intent classification
@@ -173,6 +183,17 @@ class Orchestrator:
             
             # Continuous Learning & Monitoring
             "ContinuousLearning": ContinuousLearningAgent(),
+            
+            # Dataset Discovery & Continuous Training
+            "DatasetDiscovery": DatasetDiscoveryAgent(),
+            "ContinuousTraining": ContinuousTrainingAgent(),
+            
+            # Code Generation
+            "CodeGeneration": CodeGenerationAgent(),
+            "CodingAssistant": CodingAssistantAgent(),
+            
+            # Response Generation
+            "ResponseGeneration": ResponseGenerationAgent(),
         }
         
         # Initialize memory system
@@ -315,7 +336,36 @@ class Orchestrator:
         
         # Execute sequential agents
         for agent_name in sequential_agents:
-            result = self._execute_agent_parallel(agent_name, current_input)
+            # Special handling for ResponseGeneration agent
+            if agent_name == "ResponseGeneration":
+                # Pass pipeline results to ResponseGeneration
+                pipeline_results_dict = {name: result.output for name, result in agent_results.items() if result.success}
+                agent = self.agents[agent_name]
+                start_time = time.time()
+                
+                try:
+                    output = agent.generate(current_input, pipeline_results=pipeline_results_dict)
+                    execution_time = time.time() - start_time
+                    result = AgentResult(
+                        agent_name=agent_name,
+                        success=True,
+                        output=output,
+                        execution_time=execution_time,
+                        metadata={"operation": "generate"}
+                    )
+                except Exception as e:
+                    execution_time = time.time() - start_time
+                    result = AgentResult(
+                        agent_name=agent_name,
+                        success=False,
+                        output=None,
+                        execution_time=execution_time,
+                        error=str(e),
+                        metadata={"operation": "generate"}
+                    )
+            else:
+                result = self._execute_agent_parallel(agent_name, current_input)
+            
             agent_results[agent_name] = result
             
             # Update input for next agents
@@ -332,12 +382,30 @@ class Orchestrator:
         
         total_execution_time = time.time() - start_time
         
+        # Generate final response from the last successful agent
+        final_response = prompt  # Default to original prompt
+        for agent_name in reversed(pipeline):
+            if agent_name in agent_results and agent_results[agent_name].success:
+                result = agent_results[agent_name]
+                if isinstance(result.output, dict):
+                    if "conclusion" in result.output:
+                        final_response = result.output["conclusion"]
+                    elif "text" in result.output:
+                        final_response = result.output["text"]
+                    elif "response" in result.output:
+                        final_response = result.output["response"]
+                    else:
+                        final_response = str(result.output)
+                elif isinstance(result.output, str):
+                    final_response = result.output
+                break
+        
         return PipelineResult(
             category=category,
             confidence=0.8,  # Will be updated by router
             pipeline=pipeline,
             agent_results=agent_results,
-            final_response=current_input,
+            final_response=final_response,
             total_execution_time=total_execution_time,
             parallel_execution=len(parallel_groups) > 0
         )

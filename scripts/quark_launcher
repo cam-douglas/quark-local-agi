@@ -1,0 +1,38 @@
+#!/bin/bash
+# Quark System Launcher
+# Can be called from anywhere to start Quark
+
+# Find the Quark installation directory
+QUARK_DIR=""
+SEARCH_PATHS=(
+    "$HOME/quark"
+    "/opt/quark"
+    "/usr/local/quark"
+    "/Applications/quark"
+)
+
+# Search for Quark installation
+for path in "${SEARCH_PATHS[@]}"; do
+    if [ -d "$path" ] && [ -f "$path/scripts/quark_shell.sh" ]; then
+        QUARK_DIR="$path"
+        break
+    fi
+done
+
+# If not found in standard locations, try to find it relative to this script
+if [ -z "$QUARK_DIR" ]; then
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    if [ -f "$SCRIPT_DIR/quark_shell.sh" ]; then
+        QUARK_DIR="$SCRIPT_DIR"
+    fi
+fi
+
+if [ -z "$QUARK_DIR" ]; then
+    echo "❌ Quark installation not found!"
+    echo "Please ensure Quark is installed in one of these locations:"
+    printf '  %s\n' "${SEARCH_PATHS[@]}"
+    exit 1
+fi
+
+# Launch Quark
+exec "$QUARK_DIR/scripts/quark_shell.sh" "$@" 

@@ -25,7 +25,10 @@ PILLARS = {
         "Abductive reasoning",
         "Causal reasoning",
         "Temporal reasoning",
-        "Multi-step problem solving"
+        "Multi-step problem solving",
+        "Mathematical reasoning",
+        "Arithmetic computation",
+        "Mathematical problem solving"
     ],
     "Planning": [
         "Task decomposition",
@@ -154,6 +157,23 @@ PILLARS = {
         "Governance protocols",
         "Safe deployment practices",
         "Transparency mechanisms"
+    ],
+    "Programming & Code Generation": [
+        "Code generation",
+        "Code completion",
+        "Code explanation",
+        "Code refactoring",
+        "Debugging assistance",
+        "Algorithm design",
+        "Code review",
+        "API integration",
+        "Database queries",
+        "Web development",
+        "Mobile app development",
+        "Data processing scripts",
+        "Automation scripts",
+        "Testing frameworks",
+        "Documentation generation"
     ]
 }
 
@@ -187,6 +207,9 @@ DEVELOPMENT_PHASES = {
         "Social Intelligence",
         "Autonomous Goals",
         "Governance & Ethics"
+    ],
+    "Phase 6: Advanced Programming": [
+        "Programming & Code Generation"
     ]
 }
 
@@ -218,6 +241,16 @@ TASK_COMPLEXITY = {
         "Governance protocols",
         "Ethics framework",
         "Safe AGI deployment"
+    ],
+    "PROGRAMMING": [
+        "Code generation",
+        "Code completion",
+        "Code explanation",
+        "Code refactoring",
+        "Debugging assistance",
+        "Algorithm design",
+        "API integration",
+        "Database queries"
     ]
 }
 

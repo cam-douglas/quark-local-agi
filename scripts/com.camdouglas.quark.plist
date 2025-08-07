@@ -7,8 +7,8 @@
     
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/bin/python3</string>
-        <string>/Users/camdouglas/quark/scripts/instant_startup.py</string>
+        <string>/Users/camdouglas/quark/scripts/quark_daemon.sh</string>
+        <string>start</string>
     </array>
     
     <key>RunAtLoad</key>
@@ -18,20 +18,22 @@
     <true/>
     
     <key>StandardOutPath</key>
-    <string>/Users/camdouglas/quark/logs/launchd_stdout.log</string>
+    <string>/Users/camdouglas/quark/logs/quark_launchagent.log</string>
     
     <key>StandardErrorPath</key>
-    <string>/Users/camdouglas/quark/logs/launchd_stderr.log</string>
+    <string>/Users/camdouglas/quark/logs/quark_launchagent_error.log</string>
     
     <key>WorkingDirectory</key>
     <string>/Users/camdouglas/quark</string>
     
     <key>EnvironmentVariables</key>
     <dict>
-        <key>PATH</key>
-        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin</string>
         <key>PYTHONPATH</key>
         <string>/Users/camdouglas/quark</string>
+        <key>QUARK_HOME</key>
+        <string>/Users/camdouglas/quark</string>
+        <key>QUARK_ENV</key>
+        <string>launchagent</string>
     </dict>
     
     <key>ProcessType</key>
@@ -43,7 +45,12 @@
     <key>StartInterval</key>
     <integer>300</integer>
     
-    <key>ExitTimeOut</key>
-    <integer>30</integer>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>0</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
 </dict>
 </plist> 
