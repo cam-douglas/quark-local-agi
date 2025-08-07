@@ -23,9 +23,55 @@ mkdir -p training_checkpoints
 # Install training requirements
 echo "📦 Installing training requirements..."
 if command -v pip3 &> /dev/null; then
+    echo "  🔧 Installing Python packages..."
     pip3 install -r training_requirements.txt
+    
+    echo "  📚 Downloading NLTK data..."
+    python3 -c "
+import nltk
+import ssl
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('averaged_perceptron_tagger', quiet=True)
+print('✅ NLTK data downloaded successfully')
+"
+    
+    echo "  🌐 Installing spaCy language model..."
+    python3 -m spacy download en_core_web_sm
+    
 elif command -v pip &> /dev/null; then
+    echo "  🔧 Installing Python packages..."
     pip install -r training_requirements.txt
+    
+    echo "  📚 Downloading NLTK data..."
+    python -c "
+import nltk
+import ssl
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('averaged_perceptron_tagger', quiet=True)
+print('✅ NLTK data downloaded successfully')
+"
+    
+    echo "  🌐 Installing spaCy language model..."
+    python -m spacy download en_core_web_sm
+    
 else
     echo "❌ pip not found. Please install pip first."
     exit 1

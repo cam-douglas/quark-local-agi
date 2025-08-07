@@ -20,6 +20,26 @@ pandas>=2.0.0
 numpy>=1.24.0
 tqdm>=4.65.0
 
+# Natural Language Processing
+nltk>=3.8.1
+spacy>=3.6.0
+textblob>=0.17.1
+
+# Knowledge Graphs
+networkx>=3.1
+rdflib>=6.3.0
+py2neo>=2021.2.3
+
+# Vector databases and search
+faiss-cpu>=1.7.4
+chromadb>=0.3.29
+pinecone-client>=2.2.2
+
+# Web scraping and APIs
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+scrapy>=2.9.0
+
 # System monitoring
 psutil>=5.9.0
 GPUtil>=1.4.0
@@ -39,6 +59,14 @@ pympler>=0.9
 # Model optimization
 optimum>=1.8.0
 onnx>=1.14.0
+
+# Database and storage
+sqlalchemy>=2.0.0
+redis>=4.6.0
+
+# Configuration and environment
+python-dotenv>=1.0.0
+pyyaml>=6.0
 
 # Development utilities
 jupyter>=1.0.0
