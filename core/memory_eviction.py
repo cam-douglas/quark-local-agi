@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Memory Eviction Manager for Meta-Model AI Assistant
+Memory Eviction Manager for Quark AI Assistant
 Handles long-term memory management and cleanup policies
 """
 

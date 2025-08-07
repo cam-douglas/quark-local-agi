@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Safety Guardrails for Meta-Model AI Assistant
+Safety Guardrails for Quark AI Assistant
 Ensures safe self-improvement with user confirmation for significant changes
 """
 

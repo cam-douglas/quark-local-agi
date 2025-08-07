@@ -1,9 +1,9 @@
 #!/bin/bash
-# Quick script to check if Meta-Model AI Assistant is ready
+# Quick script to check if Quark AI Assistant is ready
 
-META_MODEL_DIR="/Users/camdouglas/meta_model"
+META_MODEL_DIR="/Users/camdouglas/quark"
 READY_FLAG="$META_MODEL_DIR/logs/model_ready.flag"
-PID_FILE="$META_MODEL_DIR/logs/meta_model.pid"
+PID_FILE="$META_MODEL_DIR/logs/quark.pid"
 
 # Colors
 GREEN='\033[0;32m'
@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-echo "🤖 Meta-Model AI Assistant Status Check"
+echo "🤖 Quark AI Assistant Status Check"
 echo "======================================"
 
 # Check if ready flag exists

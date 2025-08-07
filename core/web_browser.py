@@ -2,7 +2,7 @@
 WEB BROWSER MODULE
 ==================
 
-Provides internet browsing capabilities for the Meta-Model AI Assistant.
+Provides internet browsing capabilities for the Quark AI Assistant.
 Includes captcha detection and user prompting for verification.
 """
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Streaming CLI for Meta-Model AI Assistant
+Streaming CLI for Quark AI Assistant
 =========================================
 
 Provides commands for managing streaming, WebSocket connections, and real-time features.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Context Window Manager for Meta-Model AI Assistant
+Context Window Manager for Quark AI Assistant
 Handles short-term context management and conversation history
 """
 

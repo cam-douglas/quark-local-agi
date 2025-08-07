@@ -1,132 +1,172 @@
 # API Reference
 
+## Overview
+
+The Quark AI Assistant provides a comprehensive API for interacting with the multi-agent AI system. This document covers all available endpoints, classes, and methods.
+
 ## Table of Contents
 
-1. [Core Components](#core-components)
-2. [Agents](#agents)
-3. [CLI Interfaces](#cli-interfaces)
-4. [Web API](#web-api)
-5. [Safety System](#safety-system)
-6. [Memory System](#memory-system)
-7. [Cloud Integration](#cloud-integration)
-8. [Web Browser](#web-browser)
+- [Core Components](#core-components)
+- [Agent API](#agent-api)
+- [CLI Commands](#cli-commands)
+- [Web API](#web-api)
+- [Safety API](#safety-api)
+- [Memory API](#memory-api)
+- [Metrics API](#metrics-api)
+- [Streaming API](#streaming-api)
 
 ## Core Components
 
 ### Orchestrator
 
-The main orchestrator that coordinates all AI agents and handles user requests.
+The main orchestrator coordinates all agents and handles request routing.
 
 ```python
 from core.orchestrator import Orchestrator
 
 # Initialize orchestrator
-orchestrator = Orchestrator()
+orchestrator = Orchestrator(max_workers=4)
 
-# Handle user request
-result = orchestrator.handle("Hello, how are you?")
+# Handle a request
+response = orchestrator.handle("What is the weather like today?")
+
+# Get performance stats
+stats = orchestrator.get_performance_stats()
 ```
 
-**Methods:**
-- `handle(prompt: str) -> Dict[str, Any]`: Process user input and return response
-- `get_status() -> Dict[str, Any]`: Get orchestrator status
+#### Methods
+
+- `handle(prompt: str) -> Dict[str, Any]`: Process a user request
+- `get_performance_stats() -> Dict[str, Any]`: Get execution statistics
+- `shutdown()`: Clean shutdown of all agents
 
 ### Router
 
-Routes user prompts to appropriate agents based on intent classification.
+The router determines which agents should handle a request.
 
 ```python
 from core.router import Router
 
 router = Router()
-category = router.route("What is the weather today?")
+category = router.classify_intent("What is the capital of France?")
 ```
 
-**Methods:**
-- `route(prompt: str) -> str`: Route prompt to appropriate category
+#### Methods
 
-### Context Window Manager
+- `classify_intent(text: str) -> str`: Classify the intent of user input
+- `get_pipeline(category: str) -> List[str]`: Get agent pipeline for category
 
-Manages short-term conversational context and token limits.
+## Agent API
+
+### Base Agent
+
+All agents inherit from the base Agent class.
 
 ```python
-from core.context_window_manager import ContextWindowManager
+from agents.base import Agent
 
-context_manager = ContextWindowManager()
-context_manager.add_message("user", "Hello")
-context = context_manager.get_context()
+class CustomAgent(Agent):
+    def __init__(self, model_name: str):
+        super().__init__(model_name)
+    
+    def load_model(self):
+        # Load your model here
+        pass
+    
+    def generate(self, prompt: str, **kwargs) -> Dict[str, Any]:
+        # Generate response
+        pass
 ```
-
-**Methods:**
-- `add_message(role: str, content: str) -> Dict[str, Any]`: Add message to context
-- `get_context() -> Dict[str, Any]`: Get current context
-- `clear_context() -> Dict[str, Any]`: Clear all context
-
-## Agents
 
 ### NLU Agent
 
-Natural Language Understanding agent for intent classification and entity recognition.
+Natural Language Understanding agent for intent classification.
 
 ```python
 from agents.nlu_agent import NLUAgent
 
-nlu_agent = NLUAgent()
-intent = nlu_agent.classify_intent("What's the weather like?")
+nlu_agent = NLUAgent(model_name="facebook/bart-large-mnli")
+result = nlu_agent.generate("What is the weather like?", operation="classify_intent")
 ```
 
 ### Memory Agent
 
-Manages long-term memory storage and retrieval using ChromaDB.
+Long-term memory storage and retrieval.
 
 ```python
 from agents.memory_agent import MemoryAgent
 
 memory_agent = MemoryAgent()
-result = memory_agent.store_memory("User likes pizza", {"category": "preferences"})
-memories = memory_agent.retrieve_memories("food preferences")
+memory_id = memory_agent.store_memory(
+    content="User likes pizza",
+    memory_type="preference",
+    metadata={"importance": 0.8}
+)
+
+memories = memory_agent.retrieve_memories("pizza", n_results=5)
 ```
 
-**Methods:**
-- `store_memory(content: str, metadata: Dict) -> Dict[str, Any]`: Store memory
-- `retrieve_memories(query: str) -> Dict[str, Any]`: Retrieve relevant memories
+#### Methods
+
+- `store_memory(content: str, memory_type: str, metadata: Dict) -> str`: Store a memory
+- `retrieve_memories(query: str, n_results: int) -> List[Dict]`: Retrieve relevant memories
 - `get_memory_stats() -> Dict[str, Any]`: Get memory statistics
-- `delete_memory(memory_id: str) -> Dict[str, Any]`: Delete specific memory
 
 ### Metrics Agent
 
-Collects and provides performance metrics and analytics.
+Performance monitoring and evaluation.
 
 ```python
 from agents.metrics_agent import MetricsAgent
 
 metrics_agent = MetricsAgent()
-metrics_agent.record_operation("text_generation", 0.5, 100)
-summary = metrics_agent.get_performance_summary()
+op_id = metrics_agent.start_operation("test_operation", "test input")
+metrics_agent.end_operation(op_id, success=True, tokens_used=100)
 ```
 
-**Methods:**
-- `record_operation(operation_type: str, duration: float, tokens: int) -> None`: Record operation
+#### Methods
+
+- `start_operation(operation: str, input_data: str) -> str`: Start tracking an operation
+- `end_operation(operation_id: str, success: bool, **kwargs)`: End operation tracking
 - `get_performance_summary() -> Dict[str, Any]`: Get performance summary
-- `get_error_summary() -> Dict[str, Any]`: Get error summary
 
-### Self-Improvement Agent
+### Safety Agent
 
-Manages automated learning and capability bootstrapping.
+Safety validation and content filtering.
 
 ```python
-from agents.self_improvement_agent import SelfImprovementAgent
+from agents.safety_agent import SafetyAgent
 
-improvement_agent = SelfImprovementAgent()
-result = improvement_agent.learn_from_feedback("positive", "Great response!")
+safety_agent = SafetyAgent()
+result = safety_agent.generate("Generate harmful content", operation="assess_safety")
 ```
 
-**Methods:**
-- `learn_from_feedback(feedback_type: str, feedback_text: str) -> Dict[str, Any]`: Learn from feedback
-- `bootstrap_capability(capability: str) -> Dict[str, Any]`: Learn new capability
-- `get_learning_stats() -> Dict[str, Any]`: Get learning statistics
+#### Methods
 
-## CLI Interfaces
+- `assess_safety(content: str) -> Dict[str, Any]`: Assess safety of content
+- `filter_content(content: str) -> Dict[str, Any]`: Filter inappropriate content
+
+### Streaming Agent
+
+Real-time streaming capabilities.
+
+```python
+from agents.streaming_agent import StreamingAgent
+
+streaming_agent = StreamingAgent()
+session_id = streaming_agent.create_session(user_id="user123")
+
+async for event in streaming_agent.stream_response("Hello", response_generator, session_id):
+    print(f"Event: {event.content}")
+```
+
+#### Methods
+
+- `create_session(user_id: str) -> str`: Create a streaming session
+- `stream_response(prompt: str, generator: Callable, session_id: str)`: Stream response
+- `close_session(session_id: str)`: Close a session
+
+## CLI Commands
 
 ### Main CLI
 
@@ -134,270 +174,336 @@ result = improvement_agent.learn_from_feedback("positive", "Great response!")
 # Start the AI assistant
 meta-model
 
-# Available commands
-meta-model --help
+# Ask a question directly
+meta-model "What is the weather like?"
+
+# Start with web interface
+meta-model --web --host 0.0.0.0 --port 8000
+
+# Enable streaming
+meta-model --stream
+
+# Set safety level
+meta-model --safety-level high
 ```
 
 ### Memory CLI
 
 ```bash
-# Manage memories
-meta-memory
+# Store a memory
+meta-memory store "User likes pizza" --type preference
 
-# Store memory
-meta-memory store "User likes pizza"
+# Retrieve memories
+meta-memory retrieve "pizza" --limit 5
 
-# Search memories
-meta-memory search "pizza"
-
-# Get statistics
+# Get memory stats
 meta-memory stats
+
+# Clear memories
+meta-memory clear --type old
 ```
 
 ### Metrics CLI
 
 ```bash
-# View metrics
-meta-metrics
+# Get performance summary
+meta-metrics summary
 
-# Performance summary
-meta-metrics performance
+# Get operation details
+meta-metrics operation test_operation
 
-# Error summary
-meta-metrics errors
+# Export metrics
+meta-metrics export --format json
 
-# Run evaluation
-meta-metrics evaluate
+# Clear old metrics
+meta-metrics clear --days 30
 ```
 
 ### Safety CLI
 
 ```bash
-# Check safety status
-meta-safety status
-
-# View safety rules
-meta-safety rules
+# Assess content safety
+meta-safety assess "Generate harmful content"
 
 # Get safety report
 meta-safety report
 
-# Test safety validation
-meta-safety test "modify safety rules"
+# Export safety data
+meta-safety export --filename safety_report.json
+
+# Update safety rules
+meta-safety update-rules --file rules.json
 ```
 
 ### Streaming CLI
 
 ```bash
-# Check streaming status
-meta-streaming status
+# Start streaming session
+meta-streaming start --user-id user123
 
-# Test streaming
-meta-streaming test-stream --message "Hello world"
+# Stream response
+meta-streaming stream "Hello world" --session-id session123
 
-# Start WebSocket server
-meta-streaming start-websocket-server
+# Get session status
+meta-streaming status --session-id session123
 
-# Start FastAPI server
-meta-streaming start-fastapi-server
-```
-
-### Cloud CLI
-
-```bash
-# Check cloud status
-meta-cloud status
-
-# Setup cloud resources
-meta-cloud setup
-
-# Test cloud processing
-meta-cloud test-processing --task "text_generation"
-
-# Run benchmark
-meta-cloud benchmark
-```
-
-### Web Browser CLI
-
-```bash
-# Browse URL
-meta-web browse https://example.com
-
-# Search web
-meta-web search "artificial intelligence"
-
-# Check browser status
-meta-web status
-
-# Test browsing
-meta-web test-browse --url https://httpbin.org/html
+# Close session
+meta-streaming close --session-id session123
 ```
 
 ## Web API
 
-### FastAPI Application
+### FastAPI Endpoints
 
 The web API provides REST endpoints and WebSocket support.
 
+#### REST Endpoints
+
 ```python
-from web.fastapi_app import app
-import uvicorn
-
-# Run the server
-uvicorn.run(app, host="0.0.0.0", port=8000)
-```
-
-### REST Endpoints
-
-**Health Check:**
-```bash
+# Health check
 GET /health
-```
 
-**Chat Endpoint:**
-```bash
+# Chat endpoint
 POST /chat
 {
-    "message": "Hello, how are you?",
+    "message": "What is the weather like?",
     "stream": false,
-    "context": {}
+    "context": {"user_id": "user123"}
 }
-```
 
-**Streaming Chat:**
-```bash
+# Streaming chat
 POST /chat/stream
 {
-    "message": "Generate a long response",
+    "message": "Tell me a story",
     "stream": true
 }
-```
 
-**Status:**
-```bash
+# Create streaming session
+POST /stream/session
+{
+    "user_id": "user123",
+    "context": {"preferences": "technical"}
+}
+
+# Get stream status
+GET /stream/{stream_id}
+
+# Close stream
+DELETE /stream/{stream_id}
+
+# Get all streams
+GET /streams
+
+# Get system status
 GET /status
 ```
 
-### WebSocket Endpoints
-
-**Connect to WebSocket:**
-```javascript
-const ws = new WebSocket('ws://localhost:8000/ws');
-
-ws.onmessage = function(event) {
-    const data = JSON.parse(event.data);
-    console.log(data);
-};
-
-// Send chat message
-ws.send(JSON.stringify({
-    type: "chat",
-    message: "Hello, AI!"
-}));
-```
-
-## Safety System
-
-### Immutable Safety Rules
+#### WebSocket Endpoints
 
 ```python
-from core.immutable_safety_rules import ImmutableSafetyRules
+# WebSocket connection
+WS /ws
 
-safety_rules = ImmutableSafetyRules()
-result = safety_rules.check_action_safety("Generate helpful content", {})
+# Send message
+{
+    "type": "chat",
+    "message": "Hello",
+    "stream": true
+}
+
+# Get status
+{
+    "type": "status"
+}
 ```
 
-**Methods:**
-- `check_action_safety(action: str, context: Dict) -> Dict[str, Any]`: Check if action is safe
-- `validate_truthfulness(response: str, capabilities: List[str]) -> bool`: Validate response truthfulness
-- `verify_integrity() -> bool`: Verify safety rules integrity
+### Response Formats
+
+#### Chat Response
+
+```json
+{
+    "response": "The weather is sunny today.",
+    "category": "knowledge_retrieval",
+    "stream_id": "stream_123",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "safety_validated": true
+}
+```
+
+#### Status Response
+
+```json
+{
+    "status": "healthy",
+    "active_connections": 5,
+    "streaming_stats": {
+        "total_sessions": 10,
+        "active_sessions": 3
+    },
+    "safety_status": {
+        "enabled": true,
+        "violations": 0
+    }
+}
+```
+
+## Safety API
 
 ### Safety Enforcement
 
 ```python
-from core.safety_enforcement import SafetyEnforcement
+from core.safety_enforcement import get_safety_enforcement
 
-safety_enforcement = SafetyEnforcement()
-result = safety_enforcement.validate_action("Generate content", {})
+safety = get_safety_enforcement()
+result = safety.validate_action("Generate helpful content", {})
 ```
 
-**Methods:**
-- `validate_action(action: str, context: Dict) -> Dict[str, Any]`: Validate action
-- `validate_response(response: str, capabilities: List[str]) -> Dict[str, Any]`: Validate response
-- `require_confirmation(action: str, explanation: str, user_input: str) -> bool`: Check if confirmation needed
+#### Methods
 
-## Memory System
+- `validate_action(action: str, context: Dict) -> Dict[str, Any]`: Validate an action
+- `check_content(content: str) -> Dict[str, Any]`: Check content safety
+- `get_safety_rules() -> List[str]`: Get current safety rules
 
-### Memory Eviction Manager
+### Safety Guardrails
+
+```python
+from core.safety_guardrails import SafetyGuardrails
+
+guardrails = SafetyGuardrails()
+result = guardrails.validate_change(change_type="rule_modification", content="...")
+```
+
+## Memory API
+
+### Memory Management
 
 ```python
 from core.memory_eviction import MemoryEvictionManager
+from core.context_window_manager import ContextWindowManager
 
+# Memory eviction
 eviction_manager = MemoryEvictionManager(memory_agent)
-result = eviction_manager.apply_time_based_eviction(memories, days_threshold=30)
+eviction_manager.cleanup_old_memories()
+
+# Context window management
+context_manager = ContextWindowManager()
+context_manager.add_to_context("User said: Hello")
+context = context_manager.get_current_context()
 ```
 
-**Methods:**
-- `apply_time_based_eviction(memories: List, days_threshold: int) -> List`: Time-based eviction
-- `apply_size_based_eviction(memories: List, max_size: int) -> List`: Size-based eviction
-- `apply_relevance_based_eviction(memories: List, threshold: float) -> List`: Relevance-based eviction
+## Metrics API
 
-## Cloud Integration
-
-### Cloud Integration Manager
+### System Monitor
 
 ```python
-from core.cloud_integration import CloudIntegration
+from core.metrics import SystemMonitor
 
-cloud_integration = CloudIntegration()
-result = await cloud_integration.process_with_cloud("text_generation", {"prompt": "Hello"})
+monitor = SystemMonitor()
+memory_usage = monitor.get_memory_usage()
+cpu_usage = monitor.get_cpu_usage()
+gpu_usage = monitor.get_gpu_usage()
 ```
 
-**Methods:**
-- `setup_google_colab(api_key: str = None, notebook_url: str = None) -> bool`: Setup Google Colab
-- `setup_huggingface_spaces(space_name: str, api_token: str = None) -> bool`: Setup HF Spaces
-- `process_with_cloud(task: str, data: Dict, cloud_provider: str = "auto") -> Dict[str, Any]`: Process with cloud
-
-## Web Browser
-
-### Web Browser Manager
+### Performance Tracking
 
 ```python
-from core.web_browser import WebBrowser
+from core.metrics import PerformanceTracker
 
-browser = WebBrowser()
-result = browser.browse("https://example.com", "Extract main content")
+tracker = PerformanceTracker()
+tracker.start_operation("test_op")
+# ... perform operation ...
+tracker.end_operation("test_op", success=True)
 ```
 
-**Methods:**
-- `browse(url: str, user_query: str = None) -> Dict[str, Any]`: Browse URL
-- `search_web(query: str, max_results: int = 5) -> Dict[str, Any]`: Search web
-- `resolve_captcha(captcha_id: str, solution: str) -> Dict[str, Any]`: Resolve captcha
+## Streaming API
+
+### WebSocket Manager
+
+```python
+from core.websocket_manager import get_websocket_manager
+
+ws_manager = get_websocket_manager()
+await ws_manager.connect(websocket)
+await ws_manager.send_message(user_id, message)
+```
+
+### Streaming Manager
+
+```python
+from core.streaming_manager import get_streaming_manager
+
+streaming_manager = get_streaming_manager()
+stream_id = streaming_manager.create_stream("test_stream")
+streaming_manager.add_chunk(stream_id, "Hello")
+```
 
 ## Error Handling
 
-All API methods return dictionaries with the following structure:
+### Common Exceptions
 
 ```python
+class MetaModelError(Exception):
+    """Base exception for Quark AI Assistant."""
+    pass
+
+class SafetyViolationError(MetaModelError):
+    """Raised when safety rules are violated."""
+    pass
+
+class MemoryError(MetaModelError):
+    """Raised when memory operations fail."""
+    pass
+
+class StreamingError(MetaModelError):
+    """Raised when streaming operations fail."""
+    pass
+```
+
+### Error Response Format
+
+```json
 {
-    "success": bool,           # Whether operation succeeded
-    "error": str,             # Error message if failed
-    "data": Any,              # Result data if successful
-    "metadata": Dict[str, Any] # Additional metadata
+    "error": "Safety violation detected",
+    "error_type": "SafetyViolationError",
+    "details": "Content contains harmful language",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "request_id": "req_123"
 }
 ```
 
 ## Configuration
 
-Configuration is handled through environment variables and config files:
+### Environment Variables
 
 ```bash
-# Environment variables
-export META_MODEL_SAFETY_ENABLED=true
-export META_MODEL_MEMORY_PATH=./memory_db
-export META_MODEL_CLOUD_ENABLED=true
-export META_MODEL_WEB_BROWSER_ENABLED=true
+# Core settings
+META_MODEL_ENV=production
+META_MODEL_SAFETY_ENABLED=true
+META_MODEL_MEMORY_PATH=/app/memory_db
+META_MODEL_LOG_LEVEL=INFO
+
+# Cloud integration
+META_MODEL_CLOUD_ENABLED=true
+META_MODEL_WEB_BROWSER_ENABLED=true
+
+# Database connections
+REDIS_URL=redis://redis:6379
+CHROMADB_HOST=chromadb
+CHROMADB_PORT=8000
+```
+
+### Configuration Files
+
+```python
+# config/settings.py
+import os
+
+class Settings:
+    ENV = os.getenv("META_MODEL_ENV", "development")
+    SAFETY_ENABLED = os.getenv("META_MODEL_SAFETY_ENABLED", "true").lower() == "true"
+    MEMORY_PATH = os.getenv("META_MODEL_MEMORY_PATH", "./memory_db")
+    LOG_LEVEL = os.getenv("META_MODEL_LOG_LEVEL", "INFO")
 ```
 
 ## Examples
@@ -407,49 +513,108 @@ export META_MODEL_WEB_BROWSER_ENABLED=true
 ```python
 from core.orchestrator import Orchestrator
 
-# Initialize and use
+# Initialize the system
 orchestrator = Orchestrator()
-result = orchestrator.handle("What's the weather like today?")
 
-print(f"Category: {result['category']}")
-print(f"Response: {result['results']['Reasoning']}")
+# Ask a question
+response = orchestrator.handle("What is the capital of France?")
+print(response["final_response"])
+
+# Get performance stats
+stats = orchestrator.get_performance_stats()
+print(f"Total requests: {stats['total_requests']}")
 ```
 
-### Memory Management
+### Streaming Example
+
+```python
+import asyncio
+from agents.streaming_agent import StreamingAgent
+
+async def main():
+    streaming_agent = StreamingAgent()
+    session_id = streaming_agent.create_session("user123")
+    
+    async def response_generator(prompt: str):
+        return "This is a streaming response with multiple tokens."
+    
+    async for event in streaming_agent.stream_response("Hello", response_generator, session_id):
+        print(f"Token: {event.content}")
+    
+    await streaming_agent.close_session(session_id)
+
+asyncio.run(main())
+```
+
+### Memory Example
 
 ```python
 from agents.memory_agent import MemoryAgent
 
-# Store and retrieve memories
 memory_agent = MemoryAgent()
-memory_agent.store_memory("User prefers dark mode", {"category": "preferences"})
-memories = memory_agent.retrieve_memories("user preferences")
+
+# Store a memory
+memory_id = memory_agent.store_memory(
+    content="User prefers technical explanations",
+    memory_type="preference",
+    metadata={"importance": 0.9}
+)
+
+# Retrieve relevant memories
+memories = memory_agent.retrieve_memories("technical", n_results=3)
+for memory in memories:
+    print(f"Memory: {memory['content']} (similarity: {memory['similarity']})")
 ```
 
-### Safety Validation
+### Safety Example
 
 ```python
-from core.safety_enforcement import SafetyEnforcement
+from agents.safety_agent import SafetyAgent
 
-# Validate actions and responses
-safety = SafetyEnforcement()
-action_result = safety.validate_action("Generate helpful content", {})
-response_result = safety.validate_response("I can help you", ["text_generation"])
+safety_agent = SafetyAgent()
+result = safety_agent.generate("Generate harmful content", operation="assess_safety")
+
+if result["is_safe"]:
+    print("Content is safe")
+else:
+    print(f"Content blocked: {result['reason']}")
 ```
 
-### Cloud Processing
+## Best Practices
 
-```python
-from core.cloud_integration import CloudIntegration
-import asyncio
+### Performance
 
-async def process_with_cloud():
-    cloud = CloudIntegration()
-    result = await cloud.process_with_cloud("text_generation", {"prompt": "Hello"})
-    return result
+1. **Use streaming for long responses**: Enable streaming for responses that take time to generate
+2. **Batch memory operations**: Store multiple memories at once when possible
+3. **Monitor metrics**: Regularly check performance metrics to identify bottlenecks
+4. **Use appropriate safety levels**: Balance safety with performance based on your use case
 
-# Run async function
-result = asyncio.run(process_with_cloud())
-```
+### Safety
 
-For more detailed examples, see the [examples/](examples/) directory and [tests/](tests/) directory. 
+1. **Always enable safety**: Never disable safety features in production
+2. **Monitor safety violations**: Track and analyze safety violations
+3. **Regular safety audits**: Periodically review and update safety rules
+4. **User feedback**: Collect and incorporate user feedback on safety decisions
+
+### Memory
+
+1. **Use meaningful memory types**: Categorize memories appropriately
+2. **Set appropriate importance scores**: Help the system prioritize memories
+3. **Regular cleanup**: Configure automatic memory cleanup
+4. **Monitor memory usage**: Track memory statistics and performance
+
+### Error Handling
+
+1. **Always handle exceptions**: Wrap API calls in try-catch blocks
+2. **Log errors appropriately**: Use structured logging for debugging
+3. **Provide user-friendly messages**: Translate technical errors to user-friendly messages
+4. **Implement retry logic**: Add retry mechanisms for transient failures
+
+## Support
+
+For additional support:
+
+- **Documentation**: [User Guide](USER_GUIDE.md)
+- **Issues**: [GitHub Issues](https://github.com/camdouglas/quark-local-agi/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/camdouglas/quark-local-agi/discussions)
+- **Examples**: [examples/](examples/) directory 

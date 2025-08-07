@@ -2,7 +2,7 @@
 TESTING FRAMEWORK
 ================
 
-Comprehensive testing suite for the Meta-Model AI Assistant.
+Comprehensive testing suite for the Quark AI Assistant.
 Includes unit tests, integration tests, end-to-end tests, and performance benchmarks.
 """
 

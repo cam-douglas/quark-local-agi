@@ -3,13 +3,13 @@ set -e
 
 # ─────────────────────────────────────────────────────────────────────────────
 # File: setup_env.sh
-# One-time environment setup for Meta-Model AI Assistant
+# One-time environment setup for Quark AI Assistant
 # ─────────────────────────────────────────────────────────────────────────────
 
-echo "🚀 Setting up Meta-Model AI Assistant environment..."
+echo "🚀 Setting up Quark AI Assistant environment..."
 
 # 0) Go to your project root
-cd /Users/camdouglas/meta_model
+cd /Users/camdouglas/quark
 
 # Check Python version
 PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")

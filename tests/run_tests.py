@@ -3,7 +3,7 @@
 TEST RUNNER
 ==========
 
-Comprehensive test runner for the Meta-Model AI Assistant.
+Comprehensive test runner for the Quark AI Assistant.
 Runs unit tests, integration tests, and performance benchmarks.
 """
 
@@ -23,7 +23,7 @@ from tests import TEST_CONFIG
 
 
 class TestRunner:
-    """Comprehensive test runner for the Meta-Model AI Assistant."""
+    """Comprehensive test runner for the Quark AI Assistant."""
     
     def __init__(self):
         """Initialize test runner."""

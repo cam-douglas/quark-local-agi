@@ -74,7 +74,7 @@ def main():
     project_root = Path(__file__).parent.parent
     os.chdir(project_root)
     
-    print("🚀 Meta-Model AI Assistant Startup")
+    print("🚀 Quark AI Assistant Startup")
     print("=" * 40)
     
     setup_environment()

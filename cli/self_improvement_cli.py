@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Self-Improvement CLI for Meta-Model AI Assistant
+Self-Improvement CLI for Quark AI Assistant
 Provides commands for managing self-improvement and capability bootstrapping
 """
 

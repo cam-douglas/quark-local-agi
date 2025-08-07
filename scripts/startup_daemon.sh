@@ -1,5 +1,5 @@
 #!/bin/bash
-# Meta-Model AI Assistant Startup Daemon
+# Quark AI Assistant Startup Daemon
 # This script ensures the AI assistant is ready before completing startup
 
 set -e
@@ -13,11 +13,11 @@ CYAN='\033[0;36m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# Meta-Model project directory
-META_MODEL_DIR="/Users/camdouglas/meta_model"
+# Quark project directory
+META_MODEL_DIR="/Users/camdouglas/quark"
 STARTUP_LOG="$META_MODEL_DIR/logs/startup.log"
 READY_FLAG="$META_MODEL_DIR/logs/model_ready.flag"
-PID_FILE="$META_MODEL_DIR/logs/meta_model.pid"
+PID_FILE="$META_MODEL_DIR/logs/quark.pid"
 
 # Function to log messages
 log_message() {
@@ -62,7 +62,7 @@ wait_for_model_ready() {
 
 # Function to start the model in background
 start_model_background() {
-    log_message "🚀 Starting Meta-Model AI Assistant in background..."
+    log_message "🚀 Starting Quark AI Assistant in background..."
     
     # Change to project directory
     cd "$META_MODEL_DIR"
@@ -145,7 +145,7 @@ trap 'log_message "🛑 Received interrupt signal"; exit 1' INT TERM
 
 # Main startup sequence
 main() {
-    log_message "🚀 Meta-Model AI Assistant Startup Daemon Starting"
+    log_message "🚀 Quark AI Assistant Startup Daemon Starting"
     log_message "📁 Working directory: $META_MODEL_DIR"
     
     # Create necessary directories
@@ -157,7 +157,7 @@ main() {
     # Start model in background
     if start_model_background; then
         log_message "✅ Startup sequence completed successfully"
-        log_message "🤖 Meta-Model AI Assistant is ready for input"
+        log_message "🤖 Quark AI Assistant is ready for input"
         
         # Keep the daemon running to maintain the model
         while true; do

@@ -4,7 +4,7 @@ ActionExecutionAgent: executes shell commands, orchestrates API calls, and runs 
 """
 import subprocess
 import requests
-from meta_model.agents.base import Agent
+from quark.agents.base import Agent
 
 class ActionExecutionAgent(Agent):
     def __init__(self, model_name: str = None, model_path: str = None):

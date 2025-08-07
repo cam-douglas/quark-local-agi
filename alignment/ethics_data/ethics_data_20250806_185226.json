@@ -1,0 +1,152 @@
+{
+  "export_timestamp": "2025-08-06T18:52:26.676768",
+  "ethics_report": {
+    "timestamp": "2025-08-06T18:52:26.676772",
+    "ethics_enabled": true,
+    "bias_detection_enabled": true,
+    "total_assessments": 12,
+    "total_bias_detections": 0,
+    "transparency_logs": 0,
+    "recent_assessments": [
+      {
+        "principle": "accountability",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "privacy",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "beneficence",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "non_maleficence",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "fairness",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "transparency",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "accountability",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "privacy",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "beneficence",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "non_maleficence",
+        "score": 1.0,
+        "issues_count": 0
+      }
+    ],
+    "recent_bias_detections": []
+  },
+  "ethics_assessments": [
+    {
+      "principle": "fairness",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.675998
+    },
+    {
+      "principle": "transparency",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.676001
+    },
+    {
+      "principle": "accountability",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.676002
+    },
+    {
+      "principle": "privacy",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.6760042
+    },
+    {
+      "principle": "beneficence",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.6760058
+    },
+    {
+      "principle": "non_maleficence",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.676008
+    },
+    {
+      "principle": "fairness",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.6760802
+    },
+    {
+      "principle": "transparency",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.676082
+    },
+    {
+      "principle": "accountability",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.6760828
+    },
+    {
+      "principle": "privacy",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.676084
+    },
+    {
+      "principle": "beneficence",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.676086
+    },
+    {
+      "principle": "non_maleficence",
+      "score": 1.0,
+      "issues": [],
+      "recommendations": [],
+      "timestamp": 1754470346.6760871
+    }
+  ],
+  "bias_detections": [],
+  "transparency_logs": []
+}

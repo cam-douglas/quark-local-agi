@@ -1,5 +1,5 @@
 #!/bin/bash
-# Meta-Model AI Assistant Startup Installation Script
+# Quark AI Assistant Startup Installation Script
 # This script installs the LaunchAgent for automatic startup
 
 set -e
@@ -33,8 +33,8 @@ print_header() {
     echo -e "${MAGENTA}$1${NC}"
 }
 
-# Meta-Model project directory
-META_MODEL_DIR="/Users/camdouglas/meta_model"
+# Quark project directory
+META_MODEL_DIR="/Users/camdouglas/quark"
 LAUNCH_AGENT_DIR="$HOME/Library/LaunchAgents"
 PLIST_FILE="$LAUNCH_AGENT_DIR/com.metamodel.ai.assistant.plist"
 
@@ -110,7 +110,7 @@ test_startup() {
         # Clean up test process
         kill $test_pid 2>/dev/null || true
         rm -f "$META_MODEL_DIR/logs/model_ready.flag"
-        rm -f "$META_MODEL_DIR/logs/meta_model.pid"
+        rm -f "$META_MODEL_DIR/logs/quark.pid"
         
         return 0
     else
@@ -125,7 +125,7 @@ test_startup() {
 
 # Function to show status
 show_status() {
-    print_header "🤖 Meta-Model AI Assistant Startup Status"
+    print_header "🤖 Quark AI Assistant Startup Status"
     echo ""
     
     if is_already_installed; then
@@ -174,30 +174,30 @@ uninstall() {
     
     # Clean up logs
     rm -f "$META_MODEL_DIR/logs/model_ready.flag"
-    rm -f "$META_MODEL_DIR/logs/meta_model.pid"
+    rm -f "$META_MODEL_DIR/logs/quark.pid"
     
     print_status "Uninstallation complete"
 }
 
 # Function to start manually
 start_manual() {
-    print_info "Starting Meta-Model AI Assistant manually..."
+    print_info "Starting Quark AI Assistant manually..."
     "$META_MODEL_DIR/scripts/startup_daemon.sh"
 }
 
 # Function to stop manually
 stop_manual() {
-    print_info "Stopping Meta-Model AI Assistant..."
+    print_info "Stopping Quark AI Assistant..."
     
-    if [[ -f "$META_MODEL_DIR/logs/meta_model.pid" ]]; then
-        local pid=$(cat "$META_MODEL_DIR/logs/meta_model.pid")
+    if [[ -f "$META_MODEL_DIR/logs/quark.pid" ]]; then
+        local pid=$(cat "$META_MODEL_DIR/logs/quark.pid")
         if kill -0 $pid 2>/dev/null; then
             kill $pid
             print_status "Model process stopped"
         else
             print_warning "Model process not running"
         fi
-        rm -f "$META_MODEL_DIR/logs/meta_model.pid"
+        rm -f "$META_MODEL_DIR/logs/quark.pid"
     fi
     
     rm -f "$META_MODEL_DIR/logs/model_ready.flag"
@@ -209,7 +209,7 @@ main() {
     
     case "$command" in
         "install")
-            print_header "🚀 Installing Meta-Model AI Assistant Startup Service"
+            print_header "🚀 Installing Quark AI Assistant Startup Service"
             echo ""
             
             if is_already_installed; then
@@ -223,12 +223,12 @@ main() {
             
             echo ""
             print_status "Installation complete!"
-            print_info "The Meta-Model AI Assistant will now start automatically with your system."
+            print_info "The Quark AI Assistant will now start automatically with your system."
             print_info "You can check status with: ./scripts/install_startup.sh status"
             ;;
             
         "uninstall")
-            print_header "🗑️  Uninstalling Meta-Model AI Assistant Startup Service"
+            print_header "🗑️  Uninstalling Quark AI Assistant Startup Service"
             echo ""
             uninstall
             ;;
@@ -238,7 +238,7 @@ main() {
             ;;
             
         "test")
-            print_header "🧪 Testing Meta-Model AI Assistant Startup"
+            print_header "🧪 Testing Quark AI Assistant Startup"
             echo ""
             test_startup
             ;;

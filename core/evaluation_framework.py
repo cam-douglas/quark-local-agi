@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Evaluation Framework for Meta-Model AI Assistant
+Evaluation Framework for Quark AI Assistant
 Provides comprehensive evaluation capabilities for model performance
 """
 

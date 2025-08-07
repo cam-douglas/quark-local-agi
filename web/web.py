@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
 
-from meta_model.orchestrator import Orchestrator
+from quark.orchestrator import Orchestrator
 
 class Query(BaseModel):
     question: str
@@ -25,7 +25,7 @@ async def ask(q: Query):
 
 def main():
     uvicorn.run(
-        "meta_model.web:app",
+        "quark.web:app",
         host="0.0.0.0",
         port=8000,
         reload=True,

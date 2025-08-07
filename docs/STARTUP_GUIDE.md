@@ -1,13 +1,13 @@
-# Meta-Model AI Assistant Startup Guide
+# Quark AI Assistant Startup Guide
 
-This guide explains how to set up the Meta-Model AI Assistant to start automatically with your laptop and be ready for input.
+This guide explains how to set up the Quark AI Assistant to start automatically with your laptop and be ready for input.
 
 ## 🚀 Quick Setup
 
 ### 1. Install Startup Service
 
 ```bash
-cd /Users/camdouglas/meta_model
+cd /Users/camdouglas/quark
 ./scripts/install_startup.sh install
 ```
 
@@ -57,9 +57,9 @@ meta-ready
 - **Check**: `./scripts/check_ready.sh`
 
 ### Process ID
-- **File**: `logs/meta_model.pid`
+- **File**: `logs/quark.pid`
 - **Meaning**: Background process is running
-- **Check**: `ps aux | grep meta_model`
+- **Check**: `ps aux | grep quark`
 
 ### LaunchAgent Status
 - **Check**: `launchctl list | grep metamodel`
@@ -98,7 +98,7 @@ meta-download   # Download models
 ## 📁 File Structure
 
 ```
-meta_model/
+quark/
 ├── scripts/
 │   ├── install_startup.sh          # Installation script
 │   ├── startup_daemon.sh           # Startup daemon
@@ -108,7 +108,7 @@ meta_model/
 │   ├── startup.log                 # Startup logs
 │   ├── assistant.log               # Assistant logs
 │   ├── model_ready.flag           # Ready indicator
-│   └── meta_model.pid             # Process ID
+│   └── quark.pid             # Process ID
 └── ~/Library/LaunchAgents/
     └── com.metamodel.ai.assistant.plist  # macOS LaunchAgent
 ```
@@ -182,7 +182,7 @@ Once the startup service is installed:
 
 1. **Restart your computer** to test automatic startup
 2. **Open a new terminal** and run `meta-ready` to check status
-3. **Start using the AI assistant** with `meta_model` command
+3. **Start using the AI assistant** with `quark` command
 4. **Monitor logs** if you encounter any issues
 
-The Meta-Model AI Assistant will now be ready for input every time you start your laptop! 🤖 
+The Quark AI Assistant will now be ready for input every time you start your laptop! 🤖 

@@ -1,29 +1,195 @@
 [project]
-name = "meta_model_ai"
-version = "0.1.0"
-description = "A terminal-based multi-agent AI assistant built on open-source models."
+name = "quark-local-agi"
+version = "1.0.0"
+description = "Advanced multi-agent AI assistant with safety, memory, and cloud integration"
 authors = [
   { name = "Cam Douglas", email = "cam@example.com" }
 ]
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
+keywords = ["ai", "assistant", "multi-agent", "safety", "memory", "streaming"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 
 dependencies = [
-  "click>=8.2",
-  "transformers>=4.54",
-  "llama-cpp-python>=0.3",
-  "chromadb>=0.3",
-  "requests>=2.32",
-  "spacy>=3.5",
-  "prometheus-client>=0.16"
+    "click>=8.2",
+    "transformers>=4.54",
+    "llama-cpp-python>=0.3",
+    "chromadb>=0.3",
+    "requests>=2.32",
+    "spacy>=3.5",
+    "prometheus-client>=0.16",
+    "fastapi>=0.95",
+    "uvicorn[standard]>=0.22",
+    "sentence-transformers>=2.2",
+    "websockets>=11.0",
+    "pydantic>=2.0",
+    "psutil>=5.9",
+    "numpy>=1.24",
+    "torch>=2.0",
+    "dataclasses-json>=0.6",
+    "python-multipart>=0.0.6",
+    "aiofiles>=23.0",
+    "redis>=4.5",
+    "docker>=6.0",
+    "kubernetes>=26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-asyncio>=0.21",
+    "black>=23.0",
+    "isort>=5.12",
+    "flake8>=6.0",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
+    "tox>=4.0",
+]
+docs = [
+    "sphinx>=6.0",
+    "sphinx-rtd-theme>=1.2",
+    "myst-parser>=1.0",
+    "sphinx-autodoc-typehints>=1.19",
+]
+cloud = [
+    "boto3>=1.26",
+    "google-cloud-aiplatform>=1.25",
+    "azure-ai-ml>=1.0",
+    "openai>=1.0",
+]
+web = [
+    "streamlit>=1.25",
+    "gradio>=3.35",
+    "dash>=2.10",
+]
+deploy = [
+    "docker>=6.0",
+    "kubernetes>=26.0",
+    "helm>=0.7",
+    "kubectl>=0.1",
 ]
 
 [project.scripts]
-meta-model = "meta_model.cli:cli"
-memory     = "meta_model.memory_cli:memory"
+meta-model = "cli.cli:main"
+meta-memory = "cli.memory_cli:main"
+meta-metrics = "cli.metrics_cli:main"
+meta-safety = "cli.safety_cli:main"
+meta-streaming = "cli.streaming_cli:main"
+meta-cloud = "cli.cloud_cli:main"
+meta-web = "cli.web_browser_cli:main"
+meta-deploy = "cli.deployment_cli:main"
+meta-test = "tests.run_tests:main"
+
+[project.urls]
+Homepage = "https://github.com/camdouglas/quark-local-agi"
+Documentation = "https://quark-local-agi.readthedocs.io"
+Repository = "https://github.com/camdouglas/quark-local-agi"
+Issues = "https://github.com/camdouglas/quark-local-agi/issues"
+Discussions = "https://github.com/camdouglas/quark-local-agi/discussions"
 
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["*"]
+exclude = ["tests*", "docs*", "deployment*", "scripts*", "venv*", "__pycache__*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["quark"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+    "--tb=short",
+    "--cov=quark",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "performance: Performance tests",
+    "security: Security tests",
+    "adversarial: Adversarial tests",
+    "slow: Slow running tests",
+]
+
+[tool.coverage.run]
+source = ["quark"]
+omit = [
+    "*/tests/*",
+    "*/venv/*",
+    "*/__pycache__/*",
+    "*/migrations/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
 # cleanup_models.sh
-#   Move large model files from ~/ into ~/meta_model/models/
+#   Move large model files from ~/ into ~/quark/models/
 
 set -e
 
-PROJECT_DIR="$HOME/meta_model"
+PROJECT_DIR="$HOME/quark"
 MODELS_DIR="$PROJECT_DIR/models"
 
 # 1. Make sure the target exists

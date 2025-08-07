@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Capability Bootstrapping for Meta-Model AI Assistant
+Capability Bootstrapping for Quark AI Assistant
 Enables the AI to develop new capabilities through self-directed learning
 """
 

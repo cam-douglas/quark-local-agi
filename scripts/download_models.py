@@ -142,7 +142,7 @@ def clone_github_repos(concurrency: int = None):
 
 def main():
     """Main download function."""
-    print("🚀 Meta-Model AI Assistant - Model Downloader")
+    print("🚀 Quark AI Assistant - Model Downloader")
     print("=" * 50)
     
     ensure_models_dir()

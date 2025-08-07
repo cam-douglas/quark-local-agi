@@ -2,10 +2,10 @@
 set -e
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Meta-Model AI Assistant Launcher
+# Quark AI Assistant Launcher
 # ─────────────────────────────────────────────────────────────────────────────
 
-cd /Users/camdouglas/meta_model
+cd /Users/camdouglas/quark
 
 # Check if virtual environment exists
 if [[ ! -d venv ]]; then

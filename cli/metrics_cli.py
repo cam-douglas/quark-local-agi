@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Metrics CLI for Meta-Model AI Assistant
+Metrics CLI for Quark AI Assistant
 Provides commands for managing metrics and evaluation
 """
 
@@ -19,7 +19,7 @@ from core.orchestrator import Orchestrator
 
 @click.group()
 def metrics_cli():
-    """Metrics and evaluation commands for Meta-Model AI Assistant."""
+    """Metrics and evaluation commands for Quark AI Assistant."""
     pass
 
 @metrics_cli.command()

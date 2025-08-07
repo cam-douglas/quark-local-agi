@@ -1,4 +1,4 @@
-# Meta-Model AI Assistant - Project Structure
+# Quark AI Assistant - Project Structure
 
 ## Directory Organization
 
@@ -28,7 +28,7 @@
 - **metrics.py** - Performance metrics
 - **metrics.json** - Metrics data
 - **orchestrator.pt** - Orchestrator model file
-- **meta_model** - Main entry point
+- **quark** - Main entry point
 
 ### `/cli/` - Command Line Interfaces
 - **cli.py** - Main CLI interface
@@ -68,7 +68,7 @@
 ### `/tests/` - Test Files
 - **test_agent.py** - Agent tests
 - **test_memory_agent.py** - Memory agent tests
-- **meta_model.py** - Meta model tests
+- **quark.py** - Meta model tests
 
 ### `/web/` - Web Interface
 - **app.py** - Web application

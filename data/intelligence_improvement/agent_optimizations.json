@@ -1,0 +1,21 @@
+{
+  "negotiation_agent": {
+    "decision_threshold": 0.8,
+    "learning_rate": 0.01,
+    "memory_size": 1000
+  },
+  "tool_discovery_agent": {
+    "evaluation_criteria": [
+      "performance",
+      "security",
+      "compatibility"
+    ],
+    "cache_size": 500,
+    "update_frequency": 3600
+  },
+  "explainability_agent": {
+    "explanation_depth": "adaptive",
+    "confidence_threshold": 0.9,
+    "transparency_level": "high"
+  }
+}

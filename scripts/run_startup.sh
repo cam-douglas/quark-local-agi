@@ -2,7 +2,7 @@
 set -e
 
 # go to project root
-cd ~/meta_model
+cd ~/quark
 
 # exec your AI-assistant startup script
 exec ./ai_assistant.sh

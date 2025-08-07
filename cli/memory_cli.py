@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Memory CLI for Meta-Model AI Assistant
+Memory CLI for Quark AI Assistant
 Provides commands for managing memories and memory operations
 """
 
@@ -18,7 +18,7 @@ from core.memory_eviction import MemoryEvictionManager
 
 @click.group()
 def memory_cli():
-    """Memory management commands for Meta-Model AI Assistant."""
+    """Memory management commands for Quark AI Assistant."""
     pass
 
 @memory_cli.command()

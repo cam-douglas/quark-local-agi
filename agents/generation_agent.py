@@ -1,4 +1,4 @@
-# File: meta_model/agents/generation_agent.py
+# File: quark/agents/generation_agent.py
 #!/usr/bin/env python3
 """
 GenerationAgent: handles creative writing and report generation.

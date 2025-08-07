@@ -1,6 +1,6 @@
 import pytest
-from meta_model.agents.intent_classifier import IntentClassifierAgent
-from meta_model.use_cases_tasks import list_categories
+from quark.agents.intent_classifier import IntentClassifierAgent
+from quark.use_cases_tasks import list_categories
 
 @pytest.mark.parametrize("model_name", [
     "facebook/bart-large-mnli",

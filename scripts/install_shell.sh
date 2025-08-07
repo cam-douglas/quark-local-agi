@@ -2,7 +2,7 @@
 set -e
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Meta-Model AI Assistant Shell Integration Installer
+# Quark AI Assistant Shell Integration Installer
 # ─────────────────────────────────────────────────────────────────────────────
 
 # Colors for output
@@ -81,7 +81,7 @@ get_shell_config() {
 # Function to check if already installed
 is_already_installed() {
     local config_file="$1"
-    if [[ -f "$config_file" ]] && grep -q "Meta-Model AI Assistant Shell Profile" "$config_file"; then
+    if [[ -f "$config_file" ]] && grep -q "Quark AI Assistant Shell Profile" "$config_file"; then
         return 0
     else
         return 1
@@ -117,7 +117,7 @@ install_shell_integration() {
     cat >> "$config_file" << EOF
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Meta-Model AI Assistant Shell Profile
+# Quark AI Assistant Shell Profile
 # ─────────────────────────────────────────────────────────────────────────────
 source "$project_dir/scripts/meta_profile.sh"
 EOF
@@ -130,22 +130,22 @@ EOF
 show_usage_instructions() {
     print_header "🎉 Installation Complete!"
     echo ""
-    print_info "To start using Meta-Model AI Assistant:"
+    print_info "To start using Quark AI Assistant:"
     echo ""
     echo "1. Restart your terminal or run:"
     echo "   source ~/.$(detect_shell)rc"
     echo ""
     echo "2. Start the AI assistant:"
-    echo "   meta_model"
+    echo "   quark"
     echo ""
     echo "3. Available commands:"
-    echo "   meta_model help      - Show help"
-    echo "   meta_model status    - Check status"
-    echo "   meta_model models    - List models"
-    echo "   meta_model setup     - Run setup"
-    echo "   meta_model download  - Download models"
+    echo "   quark help      - Show help"
+    echo "   quark status    - Check status"
+    echo "   quark models    - List models"
+    echo "   quark setup     - Run setup"
+    echo "   quark download  - Download models"
     echo ""
-    print_info "You can now use 'meta_model' from anywhere in your terminal!"
+    print_info "You can now use 'quark' from anywhere in your terminal!"
 }
 
 # Function to test installation
@@ -156,17 +156,17 @@ test_installation() {
     source scripts/meta_profile.sh
     
     # Test if functions are available
-    if command -v meta_model >/dev/null 2>&1; then
-        print_status "meta_model command is available"
+    if command -v quark >/dev/null 2>&1; then
+        print_status "quark command is available"
     else
-        print_error "meta_model command not found"
+        print_error "quark command not found"
         return 1
     fi
     
-    if command -v meta_model_status >/dev/null 2>&1; then
-        print_status "meta_model_status command is available"
+    if command -v quark_status >/dev/null 2>&1; then
+        print_status "quark_status command is available"
     else
-        print_error "meta_model_status command not found"
+        print_error "quark_status command not found"
         return 1
     fi
     
@@ -176,12 +176,12 @@ test_installation() {
 
 # Main installation function
 main() {
-    print_header "🚀 Meta-Model AI Assistant Shell Integration Installer"
+    print_header "🚀 Quark AI Assistant Shell Integration Installer"
     echo ""
     
     # Check if we're in the right directory
     if [[ ! -f "scripts/meta_profile.sh" ]]; then
-        print_error "Please run this script from the meta_model project root directory"
+        print_error "Please run this script from the quark project root directory"
         exit 1
     fi
     
@@ -200,7 +200,7 @@ main() {
     
     # Check if already installed
     if is_already_installed "$config_file"; then
-        print_warning "Meta-Model AI Assistant is already installed in $config_file"
+        print_warning "Quark AI Assistant is already installed in $config_file"
         read -p "Do you want to reinstall? (y/N): " -n 1 -r
         echo
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then

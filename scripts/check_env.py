@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Environment check script for Meta-Model AI Assistant.
+Environment check script for Quark AI Assistant.
 Verifies all dependencies, models, and configurations are ready.
 """
 import os
@@ -114,7 +114,7 @@ def check_config_files():
 
 def main():
     """Main environment check function."""
-    print("🔍 Meta-Model AI Assistant - Environment Check")
+    print("🔍 Quark AI Assistant - Environment Check")
     print("=" * 50)
     
     all_checks_passed = True

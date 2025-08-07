@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from meta_model.use_cases_tasks import list_categories
+from quark.use_cases_tasks import list_categories
 
 class InterpretationAgent:
     """

@@ -2,8 +2,8 @@
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI/CD](https://github.com/camdouglas/meta-model-ai-assistant/workflows/CI/badge.svg)](https://github.com/camdouglas/meta-model-ai-assistant/actions)
-[![CodeQL](https://github.com/camdouglas/meta-model-ai-assistant/workflows/CodeQL/badge.svg)](https://github.com/camdouglas/meta-model-ai-assistant/security/code-scanning)
+[![CI/CD](https://github.com/camdouglas/quark-local-agi/workflows/CI/badge.svg)](https://github.com/camdouglas/quark-local-agi/actions)
+[![CodeQL](https://github.com/camdouglas/quark-local-agi/workflows/CodeQL/badge.svg)](https://github.com/camdouglas/quark-local-agi/security/code-scanning)
 
 > **COMPLETED** - Advanced AGI system with comprehensive AI capabilities
 
@@ -164,8 +164,8 @@ The Quark AI Assistant is a **fully completed** AGI system that combines 15+ spe
 
 ```bash
 # Clone the repository
-git clone https://github.com/camdouglas/meta-model-ai-assistant.git
-cd meta-model-ai-assistant
+git clone https://github.com/camdouglas/quark-local-agi.git
+cd quark-local-agi
 
 # Install the package
 pip install -e .
@@ -178,7 +178,7 @@ pip install -e ".[dev,docs,cloud,web]"
 
 **From PyPI (when published):**
 ```bash
-pip install meta-model-ai-assistant
+pip install quark-local-agi
 ```
 
 **With specific components:**
@@ -439,7 +439,7 @@ pytest tests/ -m adversarial
 ### Core Components
 
 ```
-meta-model-ai-assistant/
+quark-local-agi/
 ├── agents/              # AI agent implementations
 │   ├── nlu_agent.py     # Natural Language Understanding
 │   ├── memory_agent.py  # Memory management
@@ -550,8 +550,8 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ```bash
 # Clone and setup
-git clone https://github.com/camdouglas/meta-model-ai-assistant.git
-cd meta-model-ai-assistant
+git clone https://github.com/camdouglas/quark-local-agi.git
+cd quark-local-agi
 pip install -e ".[dev]"
 pre-commit install
 
@@ -597,13 +597,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Reporting Issues
 
-- **GitHub Issues**: [Create an issue](https://github.com/camdouglas/meta-model-ai-assistant/issues)
+- **GitHub Issues**: [Create an issue](https://github.com/camdouglas/quark-local-agi/issues)
 - **Bug Reports**: Include steps to reproduce and system information
 - **Feature Requests**: Describe the desired functionality
 
 ### Community
 
-- **Discussions**: [GitHub Discussions](https://github.com/camdouglas/meta-model-ai-assistant/discussions)
+- **Discussions**: [GitHub Discussions](https://github.com/camdouglas/quark-local-agi/discussions)
 - **Contributing**: [Contributing Guidelines](CONTRIBUTING.md)
 - **Code of Conduct**: [Code of Conduct](CODE_OF_CONDUCT.md)
 

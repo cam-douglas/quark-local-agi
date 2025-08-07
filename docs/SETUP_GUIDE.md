@@ -1,17 +1,17 @@
-# Meta-Model AI Assistant - Complete Setup Guide
+# Quark AI Assistant - Complete Setup Guide
 
 ## 🚀 Quick Start (Recommended)
 
 ### 1. Install Shell Integration
 
 ```bash
-# From the meta_model project directory
+# From the quark project directory
 ./scripts/install_shell.sh
 ```
 
 This will:
 - ✅ Detect your shell (bash/zsh)
-- ✅ Install the meta_model command globally
+- ✅ Install the quark command globally
 - ✅ Set up automatic environment activation
 - ✅ Create helpful aliases
 
@@ -23,20 +23,20 @@ source ~/.bashrc  # for bash
 source ~/.zshrc   # for zsh
 ```
 
-### 3. Start Using Meta-Model
+### 3. Start Using Quark
 
 ```bash
 # Start the AI assistant
-meta_model
+quark
 
 # Or ask a question directly
-meta_model "What is artificial intelligence?"
+quark "What is artificial intelligence?"
 
 # Check status
-meta_model status
+quark status
 
 # Get help
-meta_model help
+quark help
 ```
 
 ## 🔧 Manual Setup (Alternative)
@@ -48,7 +48,7 @@ If you prefer manual setup:
 Add this line to your `~/.bashrc`, `~/.zshrc`, or `~/.bash_profile`:
 
 ```bash
-source "/Users/camdouglas/meta_model/scripts/meta_profile.sh"
+source "/Users/camdouglas/quark/scripts/meta_profile.sh"
 ```
 
 ### 2. Reload Your Shell
@@ -62,35 +62,35 @@ source ~/.bashrc  # or ~/.zshrc
 Once installed, you'll have access to these commands:
 
 ### Core Commands
-- `meta_model` - Start the AI assistant
-- `meta_model help` - Show help
-- `meta_model status` - Check environment status
-- `meta_model models` - List available models
-- `meta_model setup` - Run environment setup
-- `meta_model download` - Download models
-- `meta_model test` - Run a quick test
+- `quark` - Start the AI assistant
+- `quark help` - Show help
+- `quark status` - Check environment status
+- `quark models` - List available models
+- `quark setup` - Run environment setup
+- `quark download` - Download models
+- `quark test` - Run a quick test
 
 ### Utility Commands
-- `meta_model_check` - Check environment
-- `meta_model_status` - Show status
-- `meta_model_setup` - Run setup
-- `meta_model_download` - Download models
-- `meta_model_help` - Show help
+- `quark_check` - Check environment
+- `quark_status` - Show status
+- `quark_setup` - Run setup
+- `quark_download` - Download models
+- `quark_help` - Show help
 
 ### Aliases (Shortcuts)
-- `meta` - Alias for `meta_model`
-- `meta-help` - Alias for `meta_model_help`
-- `meta-status` - Alias for `meta_model_status`
-- `meta-check` - Alias for `meta_model_check`
-- `meta-setup` - Alias for `meta_model_setup`
-- `meta-download` - Alias for `meta_model_download`
+- `meta` - Alias for `quark`
+- `meta-help` - Alias for `quark_help`
+- `meta-status` - Alias for `quark_status`
+- `meta-check` - Alias for `quark_check`
+- `meta-setup` - Alias for `quark_setup`
+- `meta-download` - Alias for `quark_download`
 
 ## 🤖 Using the AI Assistant
 
 ### Interactive Mode
 
 ```bash
-meta_model
+quark
 ```
 
 This starts an interactive session where you can:
@@ -105,19 +105,19 @@ This starts an interactive session where you can:
 
 ```bash
 # Ask a question
-meta_model "What is machine learning?"
+quark "What is machine learning?"
 
 # Request translation
-meta_model "Translate to German: Hello world"
+quark "Translate to German: Hello world"
 
 # Analyze sentiment
-meta_model "Analyze sentiment: I love this product"
+quark "Analyze sentiment: I love this product"
 
 # Extract entities
-meta_model "Extract entities: Apple Inc. is headquartered in Cupertino"
+quark "Extract entities: Apple Inc. is headquartered in Cupertino"
 
 # Generate text
-meta_model "Generate text about: artificial intelligence"
+quark "Generate text about: artificial intelligence"
 ```
 
 ## 🔍 Environment Management
@@ -125,7 +125,7 @@ meta_model "Generate text about: artificial intelligence"
 ### Check Environment Status
 
 ```bash
-meta_model status
+quark status
 ```
 
 This will show:
@@ -137,7 +137,7 @@ This will show:
 ### Setup Environment
 
 ```bash
-meta_model setup
+quark setup
 ```
 
 This will:
@@ -149,7 +149,7 @@ This will:
 ### Download Models
 
 ```bash
-meta_model download
+quark download
 ```
 
 This downloads all required models:
@@ -184,7 +184,7 @@ If dependencies are missing:
 ```bash
 # Reinstall in fresh environment
 rm -rf venv
-meta_model setup
+quark setup
 ```
 
 ### Model Download Issues
@@ -193,7 +193,7 @@ If models fail to download:
 
 ```bash
 # Manual model download
-meta_model download
+quark download
 
 # Or download specific models
 python3 -c "from transformers import pipeline; pipeline('text-classification', model='typeform/distilbert-base-uncased-mnli')"
@@ -201,14 +201,14 @@ python3 -c "from transformers import pipeline; pipeline('text-classification', m
 
 ### Shell Integration Issues
 
-If the `meta_model` command is not found:
+If the `quark` command is not found:
 
 ```bash
 # Reinstall shell integration
 ./scripts/install_shell.sh
 
 # Or manually source the profile
-source /Users/camdouglas/meta_model/scripts/meta_profile.sh
+source /Users/camdouglas/quark/scripts/meta_profile.sh
 ```
 
 ### Memory Issues
@@ -227,7 +227,7 @@ sudo sysctl vm.swappiness=10
 ## 📁 Project Structure
 
 ```
-meta_model/
+quark/
 ├── scripts/
 │   ├── meta_shell.sh          # Main shell launcher
 │   ├── meta_profile.sh        # Shell profile functions
@@ -249,46 +249,46 @@ meta_model/
 
 ```bash
 # Summarize text
-meta_model "Summarize this text: Artificial intelligence is a field of computer science that aims to create intelligent machines."
+quark "Summarize this text: Artificial intelligence is a field of computer science that aims to create intelligent machines."
 
 # Analyze sentiment
-meta_model "Analyze sentiment: I absolutely love this new AI assistant!"
+quark "Analyze sentiment: I absolutely love this new AI assistant!"
 
 # Extract entities
-meta_model "Extract entities: Tim Cook is the CEO of Apple Inc. in Cupertino, California."
+quark "Extract entities: Tim Cook is the CEO of Apple Inc. in Cupertino, California."
 ```
 
 ### Translation
 
 ```bash
 # Translate to German
-meta_model "Translate to German: Hello, how are you today?"
+quark "Translate to German: Hello, how are you today?"
 
 # Translate to French
-meta_model "Translate to French: The weather is beautiful today."
+quark "Translate to French: The weather is beautiful today."
 ```
 
 ### Generation
 
 ```bash
 # Generate text
-meta_model "Generate text about: the future of artificial intelligence"
+quark "Generate text about: the future of artificial intelligence"
 
 # Creative writing
-meta_model "Write a short story about: a robot learning to paint"
+quark "Write a short story about: a robot learning to paint"
 ```
 
 ### Questions
 
 ```bash
 # General questions
-meta_model "What is the difference between machine learning and deep learning?"
+quark "What is the difference between machine learning and deep learning?"
 
 # Technical questions
-meta_model "How does a neural network work?"
+quark "How does a neural network work?"
 
 # Practical questions
-meta_model "What are the best practices for data preprocessing?"
+quark "What are the best practices for data preprocessing?"
 ```
 
 ## 🔄 Updates and Maintenance
@@ -296,19 +296,19 @@ meta_model "What are the best practices for data preprocessing?"
 ### Update Models
 
 ```bash
-meta_model download
+quark download
 ```
 
 ### Update Environment
 
 ```bash
-meta_model setup
+quark setup
 ```
 
 ### Check for Issues
 
 ```bash
-meta_model status
+quark status
 ```
 
 ## 📞 Support
@@ -316,7 +316,7 @@ meta_model status
 If you encounter issues:
 
 1. Check the troubleshooting section above
-2. Run `meta_model status` to diagnose issues
+2. Run `quark status` to diagnose issues
 3. Check the logs in the `logs/` directory
 4. Ensure Python 3.10+ is installed
 5. Verify all models are downloaded

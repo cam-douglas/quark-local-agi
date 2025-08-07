@@ -1,0 +1,124 @@
+{
+  "name": "quark-local-agi",
+  "displayName": "Quark AI Assistant",
+  "description": "AI assistant integration for VSCode with multi-agent capabilities",
+  "version": "1.0.0",
+  "publisher": "meta-model",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:meta-model.chat",
+    "onCommand:meta-model.explain",
+    "onCommand:meta-model.improve",
+    "onCommand:meta-model.debug",
+    "onCommand:meta-model.document",
+    "onCommand:meta-model.test"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "meta-model.chat",
+        "title": "Quark: Chat",
+        "category": "Quark AI"
+      },
+      {
+        "command": "meta-model.explain",
+        "title": "Quark: Explain Code",
+        "category": "Quark AI"
+      },
+      {
+        "command": "meta-model.improve",
+        "title": "Quark: Improve Code",
+        "category": "Quark AI"
+      },
+      {
+        "command": "meta-model.debug",
+        "title": "Quark: Debug Code",
+        "category": "Quark AI"
+      },
+      {
+        "command": "meta-model.document",
+        "title": "Quark: Generate Documentation",
+        "category": "Quark AI"
+      },
+      {
+        "command": "meta-model.test",
+        "title": "Quark: Generate Tests",
+        "category": "Quark AI"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "meta-model.explain",
+          "group": "meta-model@1"
+        },
+        {
+          "command": "meta-model.improve",
+          "group": "meta-model@2"
+        },
+        {
+          "command": "meta-model.debug",
+          "group": "meta-model@3"
+        },
+        {
+          "command": "meta-model.document",
+          "group": "meta-model@4"
+        },
+        {
+          "command": "meta-model.test",
+          "group": "meta-model@5"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "meta-model.chat"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Quark AI Assistant",
+      "properties": {
+        "metaModel.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "Quark AI Assistant server URL"
+        },
+        "metaModel.apiKey": {
+          "type": "string",
+          "description": "API key for Quark AI Assistant"
+        },
+        "metaModel.capability": {
+          "type": "string",
+          "default": "chat",
+          "enum": ["chat", "reasoning", "planning", "memory", "web", "metrics"],
+          "description": "Default AI capability to use"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+} 

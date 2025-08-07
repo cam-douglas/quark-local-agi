@@ -1,5 +1,5 @@
 # mapping of pillars → sub-tasks
-# Based on the 21-pillar development roadmap for Meta-Model AI Assistant
+# Based on the 21-pillar development roadmap for Quark AI Assistant
 
 PILLARS = {
     "Natural Language Understanding": [

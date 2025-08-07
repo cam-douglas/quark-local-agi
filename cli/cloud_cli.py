@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Cloud CLI for Meta-Model AI Assistant
+Cloud CLI for Quark AI Assistant
 =====================================
 
 Provides commands for managing cloud resources and CPU scaling.
@@ -34,7 +34,7 @@ def status():
     if not cloud_integration.cloud_config["google_colab"]["enabled"]:
         cloud_integration.setup_google_colab()
     if not cloud_integration.cloud_config["huggingface_spaces"]["enabled"]:
-        cloud_integration.setup_huggingface_spaces("meta-model-ai-assistant")
+        cloud_integration.setup_huggingface_spaces("quark-local-agi")
     if not cloud_integration.cloud_config["local_cluster"]["enabled"]:
         cloud_integration.setup_local_cluster()
     
@@ -109,7 +109,7 @@ def setup():
 
 
 @cloud.command()
-@click.option('--space-name', default='meta-model-ai-assistant', help='HF Space name')
+@click.option('--space-name', default='quark-local-agi', help='HF Space name')
 @click.option('--api-token', help='HF API token (optional)')
 def setup_hf(space_name, api_token):
     """Setup Hugging Face Spaces integration."""

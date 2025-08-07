@@ -2,9 +2,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="meta_model",
+    name="quark",
     version="0.1.0",
-    description="Meta-Model AI Assistant (CLI + Web)",
+    description="Quark AI Assistant (CLI + Web)",
     author="You",
     packages=find_packages(exclude=["tests", "logs", "models"]),
     install_requires=[
@@ -19,8 +19,8 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "meta-model=meta_model.cli:cli",
-            "meta-model-web=meta_model.web:main",
+            "meta-model=quark.cli:cli",
+            "meta-model-web=quark.web:main",
         ]
     },
     # py2app support so you can do `python setup.py py2app`
@@ -28,7 +28,7 @@ setup(
     options={
         "py2app": {
             "argv_emulation": True,
-            "packages": ["meta_model", "transformers", "click", "fastapi", "uvicorn"],
+            "packages": ["quark", "transformers", "click", "fastapi", "uvicorn"],
         }
     },
     python_requires=">=3.9",

@@ -1,0 +1,21 @@
+{
+  "export_timestamp": "2025-08-06T18:51:15.132807",
+  "alignment_stats": {
+    "timestamp": "2025-08-06T18:51:15.132821",
+    "monitoring_enabled": true,
+    "total_reports": 2,
+    "total_alerts": 0,
+    "average_score": 0.9625,
+    "recent_scores": [
+      1.0,
+      0.925
+    ],
+    "recent_statuses": [
+      "aligned",
+      "aligned"
+    ]
+  },
+  "alignment_reports": [
+    {
+      "overall_score": 1.0,
+      "overall_status": 

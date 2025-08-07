@@ -1,4 +1,4 @@
-# File: meta_model/agents/execution_agent.py
+# File: quark/agents/execution_agent.py
 #!/usr/bin/env python3
 """
 ExecutionAgent: safely executes shell commands or code snippets.

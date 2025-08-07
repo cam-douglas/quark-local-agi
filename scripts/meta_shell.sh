@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Meta-Model AI Assistant Shell Script
-# This script provides the main entry point for the meta_model command
+# Quark AI Assistant Shell Script
+# This script provides the main entry point for the quark command
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -11,8 +11,8 @@ CYAN='\033[0;36m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# Meta-Model project directory
-META_MODEL_DIR="/Users/camdouglas/meta_model"
+# Quark project directory
+META_MODEL_DIR="/Users/camdouglas/quark"
 
 # Function to print status messages
 print_status() {
@@ -38,7 +38,7 @@ print_header() {
 # Function to check if we're in the project root
 check_project_root() {
     if [[ ! -d "$META_MODEL_DIR" ]]; then
-        print_error "Meta-Model project not found at $META_MODEL_DIR"
+        print_error "Quark project not found at $META_MODEL_DIR"
         return 1
     fi
     return 0
@@ -80,7 +80,7 @@ ensure_environment() {
 
 # Function to start the AI assistant
 start_ai_assistant() {
-    print_header "🚀 Starting Meta-Model AI Assistant"
+    print_header "🚀 Starting Quark AI Assistant"
     print_info "Type 'exit' or 'quit' to leave"
     print_info "Type 'help' for available commands"
     echo ""
@@ -91,28 +91,28 @@ start_ai_assistant() {
 
 # Function to show help
 show_help() {
-    print_header "🤖 Meta-Model AI Assistant Help"
+    print_header "🤖 Quark AI Assistant Help"
     echo ""
     print_info "Available commands:"
-    echo "  meta_model                    # Start interactive assistant"
-    echo "  meta_model 'What is AI?'      # Ask a question directly"
-    echo "  meta_model help               # Show this help"
-    echo "  meta_model status             # Check environment status"
-    echo "  meta_model models             # List available models"
-    echo "  meta_model setup              # Run environment setup"
-    echo "  meta_model download           # Download models"
-    echo "  meta_model test               # Run a quick test"
+    echo "  quark                    # Start interactive assistant"
+    echo "  quark 'What is AI?'      # Ask a question directly"
+    echo "  quark help               # Show this help"
+    echo "  quark status             # Check environment status"
+    echo "  quark models             # List available models"
+    echo "  quark setup              # Run environment setup"
+    echo "  quark download           # Download models"
+    echo "  quark test               # Run a quick test"
     echo ""
     print_info "Examples:"
-    echo "  meta_model 'What is machine learning?'"
-    echo "  meta_model 'Translate to German: Hello world'"
-    echo "  meta_model 'Analyze sentiment: I love this product'"
+    echo "  quark 'What is machine learning?'"
+    echo "  quark 'Translate to German: Hello world'"
+    echo "  quark 'Analyze sentiment: I love this product'"
     echo ""
 }
 
 # Function to check status
 check_status() {
-    print_header "🔍 Meta-Model AI Assistant Status"
+    print_header "🔍 Quark AI Assistant Status"
     echo ""
     
     if ! check_project_root; then
@@ -145,7 +145,7 @@ list_models() {
 
 # Function to run setup
 run_setup() {
-    print_header "🔧 Meta-Model AI Assistant Setup"
+    print_header "🔧 Quark AI Assistant Setup"
     echo ""
     
     if ! check_project_root; then

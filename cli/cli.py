@@ -33,7 +33,7 @@ class MetaModelCLI:
     
     def show_welcome(self):
         """Display welcome message and available commands."""
-        click.secho("🤖 Meta-Model AI Assistant", fg="magenta", bold=True)
+        click.secho("🤖 Quark AI Assistant", fg="magenta", bold=True)
         click.secho("=" * 50, fg="cyan")
         click.secho("Available capabilities:", fg="green")
         click.secho("• Intent Classification", fg="yellow")
@@ -214,12 +214,12 @@ class MetaModelCLI:
 @click.command()
 @click.option('--daemon', is_flag=True, help='Run in daemon mode (for startup service)')
 def cli(daemon):
-    """Meta-Model AI Assistant CLI."""
+    """Quark AI Assistant CLI."""
     cli_instance = MetaModelCLI()
     
     if daemon:
         # Daemon mode - just initialize and keep running
-        click.secho("🤖 Meta-Model AI Assistant Daemon Mode", fg="magenta", bold=True)
+        click.secho("🤖 Quark AI Assistant Daemon Mode", fg="magenta", bold=True)
         click.secho("✅ Model is ready for input", fg="green", bold=True)
         
         # Keep the process running

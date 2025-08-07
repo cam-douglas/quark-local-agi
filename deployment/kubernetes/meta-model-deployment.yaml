@@ -1,0 +1,210 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meta-model-ai
+  labels:
+    app: meta-model-ai
+    version: v1.0.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: meta-model-ai
+  template:
+    metadata:
+      labels:
+        app: meta-model-ai
+        version: v1.0.0
+    spec:
+      containers:
+      - name: meta-model-ai
+        image: meta-model-ai:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+          name: http
+        - containerPort: 8001
+          name: metrics
+        - containerPort: 8002
+          name: websocket
+        env:
+        - name: META_MODEL_ENV
+          value: "production"
+        - name: META_MODEL_SAFETY_ENABLED
+          value: "true"
+        - name: META_MODEL_MEMORY_PATH
+          value: "/app/memory_db"
+        - name: META_MODEL_CLOUD_ENABLED
+          value: "true"
+        - name: META_MODEL_WEB_BROWSER_ENABLED
+          value: "true"
+        - name: META_MODEL_LOG_LEVEL
+          value: "INFO"
+        - name: REDIS_URL
+          value: "redis://redis-service:6379"
+        - name: CHROMADB_HOST
+          value: "chromadb-service"
+        - name: CHROMADB_PORT
+          value: "8000"
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "500m"
+          limits:
+            memory: "8Gi"
+            cpu: "2000m"
+        volumeMounts:
+        - name: memory-storage
+          mountPath: /app/memory_db
+        - name: logs-storage
+          mountPath: /app/logs
+        - name: models-storage
+          mountPath: /app/models
+        - name: config-storage
+          mountPath: /app/config
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+            - ALL
+      volumes:
+      - name: memory-storage
+        persistentVolumeClaim:
+          claimName: meta-model-memory-pvc
+      - name: logs-storage
+        persistentVolumeClaim:
+          claimName: meta-model-logs-pvc
+      - name: models-storage
+        persistentVolumeClaim:
+          claimName: meta-model-models-pvc
+      - name: config-storage
+        configMap:
+          name: meta-model-config
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: meta-model-service
+  labels:
+    app: meta-model-ai
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  - port: 8001
+    targetPort: 8001
+    protocol: TCP
+    name: metrics
+  - port: 8002
+    targetPort: 8002
+    protocol: TCP
+    name: websocket
+  selector:
+    app: meta-model-ai
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 6379
+    targetPort: 6379
+    protocol: TCP
+  selector:
+    app: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chromadb-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+  selector:
+    app: chromadb
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: meta-model-memory-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: meta-model-logs-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: meta-model-models-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: meta-model-config
+data:
+  settings.json: |
+    {
+      "safety": {
+        "enabled": true,
+        "immutable_rules": true
+      },
+      "memory": {
+        "max_memories": 10000,
+        "eviction_policy": "time_based"
+      },
+      "cloud": {
+        "enabled": true,
+        "providers": ["google_colab", "huggingface_spaces"]
+      },
+      "web_browser": {
+        "enabled": true,
+        "rate_limit": 10
+      }
+    } 

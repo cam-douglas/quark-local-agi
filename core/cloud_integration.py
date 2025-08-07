@@ -2,7 +2,7 @@
 CLOUD INTEGRATION
 ================
 
-Connects the Meta-Model AI Assistant to free cloud CPU resources
+Connects the Quark AI Assistant to free cloud CPU resources
 for enhanced processing power and scalability.
 """
 
@@ -320,7 +320,7 @@ class CloudIntegration:
                     "cell_type": "markdown",
                     "metadata": {},
                     "source": [
-                        "# Meta-Model AI Assistant - Cloud Processing\n",
+                        "# Quark AI Assistant - Cloud Processing\n",
                         "This notebook provides free GPU/CPU processing for the AI assistant."
                     ]
                 },
@@ -364,13 +364,13 @@ class CloudIntegration:
             "metadata": {
                 "accelerator": "GPU",
                 "colab": {
-                    "name": "Meta-Model AI Assistant"
+                    "name": "Quark AI Assistant"
                 }
             }
         }
         
         # Save notebook
-        notebook_path = "meta_model_cloud.ipynb"
+        notebook_path = "quark_cloud.ipynb"
         with open(notebook_path, 'w') as f:
             json.dump(notebook_content, f, indent=2)
         
@@ -406,7 +406,7 @@ iface = gr.Interface(
         gr.Dropdown(choices=["text_generation", "classification"], label="Task Type")
     ],
     outputs=gr.Textbox(label="Result"),
-    title="Meta-Model AI Assistant"
+    title="Quark AI Assistant"
 )
 
 iface.launch()
@@ -417,9 +417,9 @@ transformers>=4.20.0
 torch>=1.12.0
 """,
             "README.md": """
-# Meta-Model AI Assistant - HF Space
+# Quark AI Assistant - HF Space
 
-This Hugging Face Space provides free CPU/GPU processing for the Meta-Model AI Assistant.
+This Hugging Face Space provides free CPU/GPU processing for the Quark AI Assistant.
 
 ## Features
 - Text generation
@@ -458,7 +458,7 @@ def setup_free_cloud_resources():
     success_colab = cloud.setup_google_colab()
     
     # Setup Hugging Face Spaces (free tier)
-    success_hf = cloud.setup_huggingface_spaces("meta-model-ai-assistant")
+    success_hf = cloud.setup_huggingface_spaces("quark-local-agi")
     
     # Setup local cluster
     success_local = cloud.setup_local_cluster()

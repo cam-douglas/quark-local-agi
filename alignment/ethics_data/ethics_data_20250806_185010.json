@@ -1,0 +1,66 @@
+{
+  "export_timestamp": "2025-08-06T18:50:10.031204",
+  "ethics_report": {
+    "timestamp": "2025-08-06T18:50:10.031208",
+    "ethics_enabled": true,
+    "bias_detection_enabled": true,
+    "total_assessments": 12,
+    "total_bias_detections": 0,
+    "transparency_logs": 0,
+    "recent_assessments": [
+      {
+        "principle": "accountability",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "privacy",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "beneficence",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "non_maleficence",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "fairness",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "transparency",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "accountability",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "privacy",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "beneficence",
+        "score": 1.0,
+        "issues_count": 0
+      },
+      {
+        "principle": "non_maleficence",
+        "score": 1.0,
+        "issues_count": 0
+      }
+    ],
+    "recent_bias_detections": []
+  },
+  "ethics_assessments": [
+    {
+      "principle": 

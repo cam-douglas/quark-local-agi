@@ -1,0 +1,1240 @@
+{
+  "last_optimization": "2025-08-07T13:45:26.862333",
+  "total_improvements": 33,
+  "learning_patterns": [
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:03:49 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 4
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:09:31 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 3
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:17:32 - Error: Quark failed to start within timeout",
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 2
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    },
+    {
+      "type": "errors",
+      "patterns": [
+        "2025-08-07 10:23:14 - Error: Quark failed to start within timeout"
+      ],
+      "count": 1
+    }
+  ],
+  "efficiency_gains": [
+    {
+      "timestamp": "2025-08-07T13:43:01.780107",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:06.783224",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:11.785421",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:16.788250",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:21.790150",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:26.795680",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:31.797861",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:36.800425",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:41.802103",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:46.804194",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:51.808452",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:43:56.810993",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:01.813732",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:06.816642",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:11.819402",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:16.821603",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:21.824259",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:26.829832",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:31.831874",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:36.833326",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:41.836842",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:46.839337",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:51.841137",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:44:56.843471",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:01.845728",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:06.847425",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:11.849739",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:16.851638",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:21.853390",
+      "memory_usage": 34.640625,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:26.862740",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:31.867947",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:36.870079",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:41.872111",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:46.874624",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:51.876721",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:45:56.878950",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:01.881266",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:06.883148",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:11.884816",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:16.887480",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:21.891406",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:26.900114",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:31.902426",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:36.904780",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:41.907534",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:46.910139",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:51.911474",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:46:56.914373",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:47:01.915630",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    },
+    {
+      "timestamp": "2025-08-07T13:47:06.918187",
+      "memory_usage": 34.71875,
+      "cpu_usage": 0.0,
+      "optimizations_applied": []
+    }
+  ]
+}

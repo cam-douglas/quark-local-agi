@@ -1,0 +1,172 @@
+{
+  "export_timestamp": "2025-08-06T18:59:13.525127",
+  "safety_report": {
+    "status": "success",
+    "timestamp": "2025-08-06T18:59:13.525128",
+    "safety_enabled": true,
+    "content_filtering_enabled": true,
+    "ethics_monitoring_enabled": true,
+    "alignment_monitoring_enabled": true,
+    "rlhf_enabled": true,
+    "adversarial_testing_enabled": true,
+    "total_assessments": 2,
+    "total_violations": 0,
+    "total_improvements": 0,
+    "content_filter_stats": {
+      "timestamp": "2025-08-06T18:59:13.525130",
+      "filtering_enabled": true,
+      "total_checks": 2,
+      "blocked_content": 0,
+      "warned_content": 0,
+      "safe_content": 2,
+      "block_rate": 0.0,
+      "warn_rate": 0.0
+    },
+    "ethics_report": {
+      "timestamp": "2025-08-06T18:59:13.525132",
+      "ethics_enabled": true,
+      "bias_detection_enabled": true,
+      "total_assessments": 12,
+      "total_bias_detections": 0,
+      "transparency_logs": 0,
+      "recent_assessments": [
+        {
+          "principle": "accountability",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "privacy",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "beneficence",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "non_maleficence",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "fairness",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "transparency",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "accountability",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "privacy",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "beneficence",
+          "score": 1.0,
+          "issues_count": 0
+        },
+        {
+          "principle": "non_maleficence",
+          "score": 1.0,
+          "issues_count": 0
+        }
+      ],
+      "recent_bias_detections": []
+    },
+    "alignment_stats": {
+      "timestamp": "2025-08-06T18:59:13.525139",
+      "monitoring_enabled": true,
+      "total_reports": 2,
+      "total_alerts": 0,
+      "average_score": 0.9625,
+      "recent_scores": [
+        1.0,
+        0.925
+      ],
+      "recent_statuses": [
+        "aligned",
+        "aligned"
+      ]
+    },
+    "recent_assessments": [
+      {
+        "is_safe": true,
+        "safety_score": 1.0,
+        "timestamp": 1754470753.523936
+      },
+      {
+        "is_safe": true,
+        "safety_score": 0.975,
+        "timestamp": 1754470753.524006
+      }
+    ]
+  },
+  "safety_assessments": [
+    {
+      "is_safe": true,
+      "content_filter_result": {
+        "is_safe": true,
+        "categories": [],
+        "severity": "low",
+        "confidence": 0.0,
+        "flagged_terms": [],
+        "explanation": "Content appears safe",
+        "timestamp": 1754470753.523896
+      },
+      "ethical_assessments": [
+        {
+          "principle": "fairness",
+          "score": 1.0,
+          "issues": [],
+          "recommendations": [],
+          "timestamp": 1754470753.523901
+        },
+        {
+          "principle": "transparency",
+          "score": 1.0,
+          "issues": [],
+          "recommendations": [],
+          "timestamp": 1754470753.523903
+        },
+        {
+          "principle": "accountability",
+          "score": 1.0,
+          "issues": [],
+          "recommendations": [],
+          "timestamp": 1754470753.523905
+        },
+        {
+          "principle": "privacy",
+          "score": 1.0,
+          "issues": [],
+          "recommendations": [],
+          "timestamp": 1754470753.523906
+        },
+        {
+          "principle": "beneficence",
+          "score": 1.0,
+          "issues": [],
+          "recommendations": [],
+          "timestamp": 1754470753.523909
+        },
+        {
+          "principle": "non_maleficence",
+          "score": 1.0,
+          "issues": [],
+          "recommendations": [],
+          "timestamp": 1754470753.523911
+        }
+      ],
+      "alignment_report": {
+        "overall_score": 1.0,
+        "overall_status": 

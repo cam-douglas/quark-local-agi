@@ -209,6 +209,24 @@ Do you want me to proceed? (yes/no)
             "recent_actions": self.action_log[-10:] if self.action_log else [],
             "blocked_actions_list": self.blocked_actions[-10:] if self.blocked_actions else []
         }
+    
+    def get_current_safety_score(self) -> float:
+        """Get current safety score based on recent actions."""
+        if not self.action_log:
+            return 1.0  # Perfect safety if no actions
+        
+        # Calculate safety score based on blocked vs total actions
+        total_actions = len(self.action_log)
+        blocked_actions = len(self.blocked_actions)
+        
+        if total_actions == 0:
+            return 1.0
+        
+        # Safety score decreases with more blocked actions
+        safety_score = 1.0 - (blocked_actions / total_actions)
+        
+        # Ensure score is between 0 and 1
+        return max(0.0, min(1.0, safety_score))
 
 
 class SafetyDecorator:

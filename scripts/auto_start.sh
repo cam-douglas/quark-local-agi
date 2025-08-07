@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Auto-start script for Meta-Model AI Assistant
-# This script can be called to automatically start the meta_model CLI
+# Auto-start script for Quark AI Assistant
+# This script can be called to automatically start the quark CLI
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -10,8 +10,8 @@ MAGENTA='\033[0;35m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-# Meta-Model project directory
-META_MODEL_DIR="/Users/camdouglas/meta_model"
+# Quark project directory
+META_MODEL_DIR="/Users/camdouglas/quark"
 
 # Function to check if we should auto-start
 should_auto_start() {
@@ -25,12 +25,12 @@ should_auto_start() {
         return 1
     fi
     
-    # Check if we're already in a meta_model session
+    # Check if we're already in a quark session
     if [[ -n "$META_MODEL_SESSION" ]]; then
         return 1
     fi
     
-    # Check if meta_model is available
+    # Check if quark is available
     if [[ ! -d "$META_MODEL_DIR" ]] || [[ ! -f "$META_MODEL_DIR/scripts/meta_shell.sh" ]]; then
         return 1
     fi
@@ -38,9 +38,9 @@ should_auto_start() {
     return 0
 }
 
-# Function to start meta_model
-start_meta_model() {
-    echo -e "${CYAN}🚀 Auto-starting Meta-Model AI Assistant...${NC}"
+# Function to start quark
+start_quark() {
+    echo -e "${CYAN}🚀 Auto-starting Quark AI Assistant...${NC}"
     echo -e "${YELLOW}💡 Press Ctrl+C to exit${NC}"
     echo ""
     
@@ -50,7 +50,7 @@ start_meta_model() {
     # Change to project directory
     cd "$META_MODEL_DIR"
     
-    # Start the meta_model CLI
+    # Start the quark CLI
     ./scripts/meta_shell.sh
 }
 
@@ -58,7 +58,7 @@ start_meta_model() {
 main() {
     # Check if we should auto-start
     if should_auto_start; then
-        start_meta_model
+        start_quark
     fi
 }
 

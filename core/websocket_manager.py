@@ -67,7 +67,7 @@ class WebSocketManager:
                 "type": "connection_established",
                 "connection_id": connection_id,
                 "timestamp": datetime.now().isoformat(),
-                "message": "Connected to Meta-Model AI Assistant"
+                "message": "Connected to Quark AI Assistant"
             })
             
             # Handle incoming messages

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Web Browser CLI for Meta-Model AI Assistant
+Web Browser CLI for Quark AI Assistant
 ===========================================
 
 Provides commands for internet browsing, web search, and captcha handling.

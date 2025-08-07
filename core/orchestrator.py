@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+import asyncio
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Dict, List, Any, Optional, Tuple
+from dataclasses import dataclass
 from core.router import Router
 from core.use_cases_tasks import PILLARS
 from agents.nlu_agent import NLUAgent
@@ -8,6 +14,20 @@ from agents.planning_agent import PlanningAgent
 from agents.memory_agent import MemoryAgent
 from agents.metrics_agent import MetricsAgent
 from agents.self_improvement_agent import SelfImprovementAgent
+from agents.knowledge_graph_agent import KnowledgeGraphAgent
+from agents.safety_agent import SafetyAgent
+from agents.emotional_intelligence_agent import EmotionalIntelligenceAgent
+from agents.social_understanding_agent import SocialUnderstandingAgent
+from agents.creative_intelligence_agent import CreativeIntelligenceAgent
+from agents.autonomous_decision_agent import AutonomousDecisionAgent
+from agents.tool_discovery_agent import ToolDiscoveryAgent
+from agents.negotiation_agent import NegotiationAgent
+from agents.explainability_agent import ExplainabilityAgent
+from agents.streaming_agent import StreamingAgent
+from agents.continuous_learning_agent import ContinuousLearningAgent
+from agents.self_monitoring_agent import SelfMonitoringAgent
+from agents.rag_agent import RAGAgent
+from agents.adaptive_model_agent import AdaptiveModelAgent
 from core.context_window_manager import ContextWindowManager
 from core.memory_eviction import MemoryEvictionManager
 from core.capability_bootstrapping import CapabilityBootstrapping
@@ -16,35 +36,112 @@ from core.immutable_safety_rules import SecurityError
 from core.streaming_manager import get_streaming_manager
 from core.cloud_integration import get_cloud_integration
 from core.web_browser import get_web_browser
+from meta_learning.meta_learning_orchestrator import MetaLearningOrchestrator
+
+@dataclass
+class AgentResult:
+    """Result from agent execution."""
+    agent_name: str
+    success: bool
+    output: Any
+    execution_time: float
+    error: Optional[str] = None
+    metadata: Dict[str, Any] = None
+
+@dataclass
+class PipelineResult:
+    """Result from pipeline execution."""
+    category: str
+    confidence: float
+    pipeline: List[str]
+    agent_results: Dict[str, AgentResult]
+    final_response: str
+    total_execution_time: float
+    parallel_execution: bool
 
 # Define for each top‐level category the sequence of agents to invoke
 PIPELINES = {
+    # Core Pillars (1-10)
     "Natural Language Understanding": ["NLU"],
     "Knowledge Retrieval":         ["Retrieval"],
     "Reasoning":                   ["Retrieval", "Reasoning"],
     "Planning":                    ["Retrieval", "Reasoning", "Planning"],
     "Memory & Context":            ["Memory", "Retrieval", "Reasoning"],
     "Metrics & Evaluation":        ["Metrics", "Retrieval", "Reasoning"],
-    # Fallback pipelines for other pillars
     "Self-Improvement":            ["SelfImprovement", "Retrieval", "Reasoning"],
-    "Streaming & Real-Time":       ["Retrieval", "Reasoning"],
+    "Streaming & Real-Time":       ["Streaming", "Retrieval", "Reasoning"],
     "Testing & Quality":           ["Retrieval", "Reasoning"],
     "Deployment & Scaling":        ["Retrieval", "Reasoning"],
+    
+    # Advanced Intelligence Pillars (11-20)
     "Async & Parallel":            ["Retrieval", "Reasoning"],
     "Front-end & UI":              ["Retrieval", "Reasoning"],
-    "Safety & Alignment":          ["Retrieval", "Reasoning"],
-    "Meta-Learning":               ["Retrieval", "Reasoning"],
-    "Knowledge Graphs":            ["Retrieval", "Reasoning"],
+    "Safety & Alignment":          ["Safety", "Retrieval", "Reasoning"],
+    "Meta-Learning":               ["MetaLearning", "Retrieval", "Reasoning"],
+    "Knowledge Graphs":            ["KnowledgeGraph"],
     "Generalized Reasoning":       ["Retrieval", "Reasoning"],
-    "Social Intelligence":          ["Retrieval", "Reasoning"],
-    "Autonomous Goals":            ["Retrieval", "Reasoning"],
+    "Social Intelligence":          ["SocialUnderstanding", "Retrieval", "Reasoning"],
+    "Autonomous Goals":            ["AutonomousDecision", "Retrieval", "Reasoning"],
     "Governance & Ethics":         ["Retrieval", "Reasoning"],
+    "RAG Systems":                 ["RAG", "Retrieval", "Reasoning"],
+    
+    # Superintelligence Foundation Pillars (21-30)
+    "Self-Monitoring":             ["SelfMonitoring", "Retrieval", "Reasoning"],
+    "RAG":                        ["RAG", "Retrieval", "Reasoning"],
+    "Adaptive Model Selection":    ["AdaptiveModel", "Retrieval", "Reasoning"],
+    "Advanced Reasoning":          ["Retrieval", "Reasoning"],
+    "Meta-Cognitive Abilities":    ["MetaLearning", "Retrieval", "Reasoning"],
+    "Self-Improvement Systems":    ["SelfImprovement", "Retrieval", "Reasoning"],
+    "Explainability":              ["Explainability", "Retrieval", "Reasoning"],
+    "Multi-Agent Negotiation":     ["Negotiation", "Retrieval", "Reasoning"],
+    "Tool Discovery":              ["ToolDiscovery", "Retrieval", "Reasoning"],
+    "Autonomous Decision Making":  ["AutonomousDecision", "Retrieval", "Reasoning"],
+    
+    # Advanced Intelligence Pillars (31-33)
+    "Creative Intelligence":        ["CreativeIntelligence", "Retrieval", "Reasoning"],
+    "Emotional Intelligence":      ["EmotionalIntelligence", "Retrieval", "Reasoning"],
+    "Social Understanding":        ["SocialUnderstanding", "Retrieval", "Reasoning"],
+    
+    # Continuous Learning & Monitoring
+    "Continuous Learning":         ["ContinuousLearning", "Retrieval", "Reasoning"],
+    "Self-Monitoring":             ["SelfMonitoring", "Retrieval", "Reasoning"],
+}
+
+# Define which agents can run in parallel
+PARALLEL_AGENTS = {
+    "Retrieval": True,
+    "Memory": True,
+    "Metrics": True,
+    "Safety": True,
+    "Streaming": True,
+    "RAG": True,
+    "SelfMonitoring": True,
+    "ContinuousLearning": True,
+    "AdaptiveModel": True,
+    
+    # Sequential agents due to dependencies or complexity
+    "NLU": False,  # Sequential due to intent classification
+    "Reasoning": False,  # Sequential due to dependency on Retrieval
+    "Planning": False,  # Sequential due to dependency on Reasoning
+    "SelfImprovement": False,  # Sequential due to self-reflection
+    "KnowledgeGraph": False,  # Sequential due to complex reasoning
+    "EmotionalIntelligence": False,  # Sequential due to emotional analysis
+    "SocialUnderstanding": False,  # Sequential due to social analysis
+    "CreativeIntelligence": False,  # Sequential due to creative generation
+    "AutonomousDecision": False,  # Sequential due to decision making
+    "ToolDiscovery": False,  # Sequential due to tool evaluation
+    "Negotiation": False,  # Sequential due to multi-agent coordination
+    "Explainability": False,  # Sequential due to explanation generation
 }
 
 class Orchestrator:
-    def __init__(self):
+    def __init__(self, max_workers: int = 4):
         self.router    = Router()
+        self.max_workers = max_workers
+        self.thread_pool = ThreadPoolExecutor(max_workers=max_workers)
+        
         self.agents    = {
+            # Core Pillars (1-10)
             "NLU":        NLUAgent(model_name="facebook/bart-large-mnli"),
             "Retrieval":  RetrievalAgent(
                               model_name="sentence-transformers/all-MiniLM-L6-v2"
@@ -54,6 +151,28 @@ class Orchestrator:
             "Memory":     MemoryAgent(),
             "Metrics":    MetricsAgent(),
             "SelfImprovement": SelfImprovementAgent(),
+            "Streaming":  StreamingAgent(),
+            "Safety":     SafetyAgent(),
+            
+            # Advanced Intelligence Pillars (11-20)
+            "KnowledgeGraph": KnowledgeGraphAgent(),
+            "SocialUnderstanding": SocialUnderstandingAgent(),
+            "AutonomousDecision": AutonomousDecisionAgent(),
+            "RAG":        RAGAgent(),
+            
+            # Superintelligence Foundation Pillars (21-30)
+            "SelfMonitoring": SelfMonitoringAgent(),
+            "AdaptiveModel": AdaptiveModelAgent(),
+            "Explainability": ExplainabilityAgent(),
+            "Negotiation": NegotiationAgent(),
+            "ToolDiscovery": ToolDiscoveryAgent(),
+            
+            # Advanced Intelligence Pillars (31-33)
+            "CreativeIntelligence": CreativeIntelligenceAgent(),
+            "EmotionalIntelligence": EmotionalIntelligenceAgent(),
+            
+            # Continuous Learning & Monitoring
+            "ContinuousLearning": ContinuousLearningAgent(),
         }
         
         # Initialize memory system
@@ -67,6 +186,9 @@ class Orchestrator:
         self.self_improvement_agent = self.agents["SelfImprovement"]
         self.capability_bootstrapping = CapabilityBootstrapping()
         
+        # Initialize meta-learning system (Pillar 16)
+        self.meta_learning_orchestrator = MetaLearningOrchestrator()
+        
         # Initialize safety enforcement
         self.safety_enforcement = get_safety_enforcement()
         
@@ -79,12 +201,146 @@ class Orchestrator:
         # Initialize web browser
         self.web_browser = get_web_browser()
         
+        # Performance tracking
+        self.execution_stats = {
+            "total_requests": 0,
+            "parallel_executions": 0,
+            "average_execution_time": 0.0,
+            "success_rate": 0.0
+        }
+        
         # Start a new session
         self.context_manager.start_session()
         
         # preload every model
         for agent in self.agents.values():
             agent._ensure_model()
+
+    def _can_run_parallel(self, agent_name: str, position: int, pipeline: List[str]) -> bool:
+        """Check if an agent can run in parallel with others."""
+        if not PARALLEL_AGENTS.get(agent_name, False):
+            return False
+            
+        # Check dependencies - some agents must run sequentially
+        if agent_name == "Reasoning" and "Retrieval" in pipeline[:position]:
+            return False
+        if agent_name == "Planning" and ("Retrieval" in pipeline[:position] or "Reasoning" in pipeline[:position]):
+            return False
+            
+        return True
+
+    def _execute_agent_parallel(self, agent_name: str, input_data: str, operation: str = "generate") -> AgentResult:
+        """Execute an agent in parallel."""
+        start_time = time.time()
+        agent = self.agents[agent_name]
+        
+        try:
+            if operation == "generate":
+                output = agent.generate(input_data)
+            elif operation == "retrieve":
+                output = agent.generate(input_data, operation="retrieve")
+            elif operation == "store":
+                output = agent.generate(input_data, operation="store")
+            else:
+                output = agent.generate(input_data)
+                
+            execution_time = time.time() - start_time
+            
+            return AgentResult(
+                agent_name=agent_name,
+                success=True,
+                output=output,
+                execution_time=execution_time,
+                metadata={"operation": operation}
+            )
+            
+        except Exception as e:
+            execution_time = time.time() - start_time
+            return AgentResult(
+                agent_name=agent_name,
+                success=False,
+                output=None,
+                execution_time=execution_time,
+                error=str(e),
+                metadata={"operation": operation}
+            )
+
+    def _execute_pipeline_parallel(self, prompt: str, pipeline: List[str], category: str) -> PipelineResult:
+        """Execute pipeline with parallel execution where possible."""
+        start_time = time.time()
+        agent_results = {}
+        current_input = prompt
+        
+        # Group agents that can run in parallel
+        parallel_groups = []
+        sequential_agents = []
+        
+        for i, agent_name in enumerate(pipeline):
+            if self._can_run_parallel(agent_name, i, pipeline):
+                if not parallel_groups or len(parallel_groups[-1]) >= 3:  # Max 3 parallel agents
+                    parallel_groups.append([agent_name])
+                else:
+                    parallel_groups[-1].append(agent_name)
+            else:
+                sequential_agents.append(agent_name)
+        
+        # Execute parallel groups
+        for group in parallel_groups:
+            futures = {}
+            for agent_name in group:
+                future = self.thread_pool.submit(
+                    self._execute_agent_parallel, 
+                    agent_name, 
+                    current_input
+                )
+                futures[future] = agent_name
+            
+            # Collect results
+            for future in as_completed(futures):
+                agent_name = futures[future]
+                result = future.result()
+                agent_results[agent_name] = result
+                
+                # Update input for next agents
+                if result.success and result.output:
+                    if isinstance(result.output, dict):
+                        if "text" in result.output:
+                            current_input = f"{current_input}\n\n{result.output['text']}"
+                        elif "response" in result.output:
+                            current_input = f"{current_input}\n\n{result.output['response']}"
+                        else:
+                            current_input = f"{current_input}\n\n{str(result.output)}"
+                    elif isinstance(result.output, str):
+                        current_input = f"{current_input}\n\n{result.output}"
+        
+        # Execute sequential agents
+        for agent_name in sequential_agents:
+            result = self._execute_agent_parallel(agent_name, current_input)
+            agent_results[agent_name] = result
+            
+            # Update input for next agents
+            if result.success and result.output:
+                if isinstance(result.output, dict):
+                    if "text" in result.output:
+                        current_input = f"{current_input}\n\n{result.output['text']}"
+                    elif "response" in result.output:
+                        current_input = f"{current_input}\n\n{result.output['response']}"
+                    else:
+                        current_input = f"{current_input}\n\n{str(result.output)}"
+                elif isinstance(result.output, str):
+                    current_input = f"{current_input}\n\n{result.output}"
+        
+        total_execution_time = time.time() - start_time
+        
+        return PipelineResult(
+            category=category,
+            confidence=0.8,  # Will be updated by router
+            pipeline=pipeline,
+            agent_results=agent_results,
+            final_response=current_input,
+            total_execution_time=total_execution_time,
+            parallel_execution=len(parallel_groups) > 0
+        )
 
     def handle(self, prompt: str):
         # Step 1: Safety validation of user input
@@ -95,138 +351,168 @@ class Orchestrator:
             })
             
             if not safety_result["safe"]:
-                return {
-                    "error": f"Input blocked for safety reasons: {safety_result['reason']}",
-                    "blocked": True
-                }
-        except SecurityError as e:
-            return {
-                "error": f"Safety system error: {str(e)}",
-                "blocked": True
-            }
-        
-        # Step 2: Start metrics tracking
-        operation_id = self.metrics_agent.start_operation("orchestrator_handle", prompt)
-        
-        # Step 3: Add user input to context
-        self.context_manager.add_message("user", prompt)
-        
-        # Step 4: figure out what the user really wants
-        category = self.router.route(prompt)
-
-        # Step 4: pick the pipeline for that category
-        pipeline = PIPELINES.get(category, [])
-
-        if not pipeline:
-            error_msg = f"No pipeline defined for '{category}'"
-            self.metrics_agent.end_operation(operation_id, success=False, error_message=error_msg)
-            return {"error": error_msg}
-
-        # We'll carry along a "current_input" that agents read from
-        current_input = prompt
-        results = {}
-
-        for name in pipeline:
-            agent = self.agents[name]
-
-            # Special handling for Memory agent
-            if name == "Memory":
-                # Get relevant memories and add to context
-                memory_result = agent.generate(current_input, operation="retrieve")
-                if memory_result.get("memories"):
-                    memory_context = "\n".join([m["content"] for m in memory_result["memories"]])
-                    current_input = f"{prompt}\n\nRelevant memories:\n{memory_context}"
-                results[name] = memory_result
-                continue
-                
-            # Special handling for SelfImprovement agent
-            elif name == "SelfImprovement":
-                # Run self-reflection and capability analysis
-                self_improvement_result = agent.generate(current_input, operation="self_reflection")
-                
-                # Identify learning opportunities
-                user_interactions = [{'category': category, 'input': prompt}]
-                learning_opportunities = self.capability_bootstrapping.identify_learning_opportunities(user_interactions)
-                
-                self_improvement_result['learning_opportunities'] = learning_opportunities
-                results[name] = self_improvement_result
-                continue
-
-            # Some agents (like Retrieval) might return e.g. embeddings or docs;
-            # we capture their raw output and then build the next prompt.
-            output = agent.generate(current_input)
-
-            results[name] = output
-
-            # If this was a retrieval step, let's prepend the docs into the next input:
-            if name == "Retrieval":
-                # assume output is a list of strings or a single string
-                docs = (
-                    "\n".join(output)
-                    if isinstance(output, (list, tuple))
-                    else str(output)
+                # Return a PipelineResult with error information
+                return PipelineResult(
+                    category="Safety Violation",
+                    confidence=0.0,
+                    pipeline=[],
+                    agent_results={},
+                    final_response=f"Safety violation: {safety_result['reason']}",
+                    total_execution_time=0.0,
+                    parallel_execution=False
                 )
-                current_input = f"{prompt}\n\nRelevant knowledge:\n{docs}"
-
-            # If it was reasoning, we want its text answer to carry forward
-            elif name == "Reasoning":
-                # reasoning_agent returns a string
-                current_input = output
-                
-                # Store the reasoning result in memory
-                if isinstance(output, str) and output.strip():
-                    self.agents["Memory"].generate(
-                        output, 
-                        operation="store",
-                        content=output,
-                        memory_type="reasoning"
-                    )
-
-            # Planning will dispatch sub‐tasks itself, so we don't re‐feed its output
-            # back into our pipeline.
-
-        # Step 4: Store the interaction in memory
-        if "Reasoning" in results and isinstance(results["Reasoning"], str):
-            self.agents["Memory"].generate(
-                prompt,
-                operation="store",
-                content=f"User: {prompt}\nAssistant: {results['Reasoning']}",
-                memory_type="conversation"
+        except SecurityError as e:
+            return PipelineResult(
+                category="Security Error",
+                confidence=0.0,
+                pipeline=[],
+                agent_results={},
+                final_response=f"Security error: {e}",
+                total_execution_time=0.0,
+                parallel_execution=False
+            )
+        except Exception as e:
+            return PipelineResult(
+                category="Safety Error",
+                confidence=0.0,
+                pipeline=[],
+                agent_results={},
+                final_response=f"Safety validation error: {e}",
+                total_execution_time=0.0,
+                parallel_execution=False
             )
 
-        # Step 5: Add assistant response to context
-        if "Reasoning" in results and isinstance(results["Reasoning"], str):
-            self.context_manager.add_message("assistant", results["Reasoning"])
+        # Step 2: Intent classification and routing
+        try:
+            intent_result = self.router.classify_intent(prompt)
+            category = intent_result.get("category", "Unknown")
+            confidence = intent_result.get("confidence", 0.0)
+            
+            # Log the intent classification
+            self.metrics_agent.record_intent_classification(category, confidence, prompt)
+            
+        except Exception as e:
+            return PipelineResult(
+                category="Intent Classification Error",
+                confidence=0.0,
+                pipeline=[],
+                agent_results={},
+                final_response=f"Intent classification error: {e}",
+                total_execution_time=0.0,
+                parallel_execution=False
+            )
 
-        # Step 6: Safety validation of final response
-        reasoning_output = results.get("Reasoning", "")
-        if reasoning_output:
-            try:
-                response_validation = self.safety_enforcement.validate_response(
-                    reasoning_output,
-                    ["text_generation", "reasoning", "conversation"]
-                )
-                
-                if not response_validation["valid"]:
-                    reasoning_output = f"I apologize, but I cannot provide that response as it may not be truthful or safe. {response_validation['reason']}"
-                    results["Reasoning"] = reasoning_output
-            except Exception as e:
-                reasoning_output = f"I apologize, but there was an error validating my response for safety. Please try rephrasing your question."
-                results["Reasoning"] = reasoning_output
+        # Step 3: Get the appropriate pipeline
+        pipeline = PIPELINES.get(category, ["Retrieval", "Reasoning"])
         
-        # Step 7: End metrics tracking
-        self.metrics_agent.end_operation(
-            operation_id, 
-            success=True,
-            output_data=reasoning_output,
-            tokens_used=len(reasoning_output.split()) if reasoning_output else 0
-        )
+        # Step 4: Execute the pipeline with parallel execution
+        try:
+            pipeline_result = self._execute_pipeline_parallel(prompt, pipeline, category)
+            
+            # Update execution stats
+            self.execution_stats["total_requests"] += 1
+            if pipeline_result.parallel_execution:
+                self.execution_stats["parallel_executions"] += 1
+            
+            # Calculate success rate
+            successful_agents = sum(1 for result in pipeline_result.agent_results.values() if result.success)
+            total_agents = len(pipeline_result.agent_results)
+            if total_agents > 0:
+                success_rate = successful_agents / total_agents
+                self.execution_stats["success_rate"] = (
+                    (self.execution_stats["success_rate"] * (self.execution_stats["total_requests"] - 1) + success_rate) 
+                    / self.execution_stats["total_requests"]
+                )
+            
+            # Update average execution time
+            self.execution_stats["average_execution_time"] = (
+                (self.execution_stats["average_execution_time"] * (self.execution_stats["total_requests"] - 1) + pipeline_result.total_execution_time) 
+                / self.execution_stats["total_requests"]
+            )
+            
+        except Exception as e:
+            return PipelineResult(
+                category="Pipeline Execution Error",
+                confidence=0.0,
+                pipeline=pipeline,
+                agent_results={},
+                final_response=f"Pipeline execution error: {e}",
+                total_execution_time=0.0,
+                parallel_execution=False
+            )
 
+        # Step 5: Store in memory
+        try:
+            memory_result = self.agents["Memory"].generate(
+                f"User: {prompt}\nSystem: {pipeline_result.final_response}",
+                operation="store"
+            )
+            pipeline_result.agent_results["Memory"] = AgentResult(
+                agent_name="Memory",
+                success=True,
+                output=memory_result,
+                execution_time=0.0,
+                metadata={"operation": "store"}
+            )
+        except Exception as e:
+            pipeline_result.agent_results["Memory"] = AgentResult(
+                agent_name="Memory",
+                success=False,
+                output=None,
+                execution_time=0.0,
+                error=f"Memory storage error: {e}",
+                metadata={"operation": "store"}
+            )
+
+        # Step 6: Record metrics
+        try:
+            self.metrics_agent.record_request_metrics(category, len(pipeline), pipeline_result.agent_results)
+        except Exception as e:
+            pipeline_result.agent_results["Metrics"] = AgentResult(
+                agent_name="Metrics",
+                success=False,
+                output=None,
+                execution_time=0.0,
+                error=f"Metrics recording error: {e}",
+                metadata={"operation": "record"}
+            )
+
+        # Step 7: Safety validation of final response
+        try:
+            safety_result = self.safety_enforcement.validate_action("generate_response", {
+                "input": prompt,
+                "output": pipeline_result.final_response,
+                "operation": "orchestrator_response"
+            })
+            
+            if not safety_result["safe"]:
+                # Modify the pipeline result to indicate safety violation
+                pipeline_result.final_response = f"Safety violation in response: {safety_result['reason']}"
+                pipeline_result.category = "Safety Violation"
+                return pipeline_result
+        except SecurityError as e:
+            pipeline_result.final_response = f"Security error in response: {e}"
+            pipeline_result.category = "Security Error"
+            return pipeline_result
+        except Exception as e:
+            pipeline_result.final_response = f"Response safety validation error: {e}"
+            pipeline_result.category = "Safety Error"
+            return pipeline_result
+
+        # Step 8: Return the final result
+        return pipeline_result
+
+    def get_performance_stats(self) -> Dict[str, Any]:
+        """Get orchestrator performance statistics."""
         return {
-            "category": category,
-            "results": results,
-            "context_stats": self.context_manager.get_context_stats(),
-            "metrics": self.metrics_agent.get_performance_summary(),
-            "safety_validated": True
+            "total_requests": self.execution_stats.get("total_requests", 0),
+            "execution_stats": self.execution_stats,
+            "parallel_agents": PARALLEL_AGENTS,
+            "max_workers": self.max_workers,
+            "active_threads": len(self.thread_pool._threads) if hasattr(self.thread_pool, '_threads') else 0
         }
+
+    def shutdown(self):
+        """Shutdown the orchestrator and thread pool."""
+        self.thread_pool.shutdown(wait=True)
 

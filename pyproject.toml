@@ -3,16 +3,16 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "meta-model-ai-assistant"
+name = "quark-local-agi"
 version = "1.0.0"
 description = "Advanced multi-agent AI assistant with safety, memory, and cloud integration"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Meta-Model Team", email = "team@meta-model.ai"}
+    {name = "Quark Team", email = "team@meta-model.ai"}
 ]
 maintainers = [
-    {name = "Meta-Model Team", email = "team@meta-model.ai"}
+    {name = "Quark Team", email = "team@meta-model.ai"}
 ]
 keywords = ["ai", "assistant", "multi-agent", "safety", "memory", "cloud"]
 classifiers = [
@@ -83,11 +83,11 @@ web = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/meta-model/meta-model-ai-assistant"
-Documentation = "https://meta-model-ai-assistant.readthedocs.io"
-Repository = "https://github.com/meta-model/meta-model-ai-assistant"
-"Bug Tracker" = "https://github.com/meta-model/meta-model-ai-assistant/issues"
-"Source Code" = "https://github.com/meta-model/meta-model-ai-assistant"
+Homepage = "https://github.com/camdouglas/quark-local-agi"
+Documentation = "https://quark-local-agi.readthedocs.io"
+Repository = "https://github.com/camdouglas/quark-local-agi"
+"Bug Tracker" = "https://github.com/camdouglas/quark-local-agi/issues"
+"Source Code" = "https://github.com/camdouglas/quark-local-agi"
 
 [project.scripts]
 meta-model = "cli.cli:main"
@@ -97,6 +97,10 @@ meta-safety = "cli.safety_cli:safety"
 meta-streaming = "cli.streaming_cli:streaming"
 meta-cloud = "cli.cloud_cli:cloud"
 meta-web = "cli.web_browser_cli:web"
+meta-deploy = "cli.deployment_cli:deployment"
+meta-learning = "cli.meta_learning_cli:meta_learning_cli"
+meta-async = "cli.async_cli:async_cli"
+meta-frontend = "cli.frontend_cli:frontend"
 
 [project.entry-points."console_scripts"]
 meta-model = "cli.cli:main"
@@ -167,6 +171,7 @@ markers = [
     "performance: marks tests as performance tests",
     "security: marks tests as security tests",
     "adversarial: marks tests as adversarial tests",
+    "asyncio: marks tests as asyncio tests",
 ]
 
 [tool.coverage.run]

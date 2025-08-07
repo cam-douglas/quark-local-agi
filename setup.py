@@ -3,7 +3,7 @@
 SETUP.PY
 ========
 
-Setup script for Meta-Model AI Assistant.
+Setup script for Quark AI Assistant.
 Provides backward compatibility for older Python packaging tools.
 """
 

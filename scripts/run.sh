@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# run.sh — launcher for Meta-Model Assistant
+# run.sh — launcher for Quark Assistant
 
 # 1) cd into this script’s directory (your project root)
 cd "$(dirname "$0")"
@@ -11,5 +11,5 @@ export PYTHONPATH="$(pwd)"
 # source venv/bin/activate
 
 # 4) now invoke the packaged CLI
-exec python3 -m meta_model.cli "$@"
+exec python3 -m quark.cli "$@"
 

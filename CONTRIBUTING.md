@@ -1,6 +1,6 @@
-# Contributing to Meta-Model AI Assistant
+# Contributing to Quark AI Assistant
 
-Thank you for your interest in contributing to the Meta-Model AI Assistant! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to the Quark AI Assistant! This document provides guidelines and information for contributors.
 
 ## Table of Contents
 
@@ -31,8 +31,8 @@ This project and its participants are governed by our [Code of Conduct](CODE_OF_
 1. **Fork the repository**
    ```bash
    # Fork on GitHub, then clone your fork
-   git clone https://github.com/YOUR_USERNAME/meta-model-ai-assistant.git
-   cd meta-model-ai-assistant
+   git clone https://github.com/YOUR_USERNAME/quark-local-agi.git
+cd quark-local-agi
    ```
 
 2. **Set up development environment**
@@ -74,7 +74,7 @@ META_MODEL_CACHE_ENABLED=true
 ### Project Structure
 
 ```
-meta-model-ai-assistant/
+quark-local-agi/
 ├── agents/              # AI agent implementations
 ├── cli/                 # Command-line interfaces
 ├── core/                # Core application logic
@@ -390,4 +390,4 @@ Contributors will be recognized in:
 - **GitHub releases**: For release contributions
 - **Documentation**: For documentation improvements
 
-Thank you for contributing to the Meta-Model AI Assistant! 🚀 
+Thank you for contributing to the Quark AI Assistant! 🚀 
