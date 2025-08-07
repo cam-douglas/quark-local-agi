@@ -38,33 +38,163 @@ import gc
 # Add the parent directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-# Import Quark components
-from agents.nlu_agent import NLUAgent
-from agents.retrieval_agent import RetrievalAgent
-from agents.reasoning_agent import ReasoningAgent
-from agents.planning_agent import PlanningAgent
-from agents.memory_agent import MemoryAgent
-from agents.metrics_agent import MetricsAgent
-from agents.self_improvement_agent import SelfImprovementAgent
-from agents.streaming_agent import StreamingAgent
-from agents.safety_agent import SafetyAgent
-from agents.knowledge_graph_agent import KnowledgeGraphAgent
-from agents.social_understanding_agent import SocialUnderstandingAgent
-from agents.autonomous_decision_agent import AutonomousDecisionAgent
-from agents.rag_agent import RAGAgent
-from agents.self_monitoring_agent import SelfMonitoringAgent
-from agents.adaptive_model_agent import AdaptiveModelAgent
-from agents.explainability_agent import ExplainabilityAgent
-from agents.negotiation_agent import NegotiationAgent
-from agents.tool_discovery_agent import ToolDiscoveryAgent
-from agents.creative_intelligence_agent import CreativeIntelligenceAgent
-from agents.emotional_intelligence_agent import EmotionalIntelligenceAgent
-from agents.continuous_learning_agent import ContinuousLearningAgent
-from agents.dataset_discovery_agent import DatasetDiscoveryAgent
-from agents.continuous_training_agent import ContinuousTrainingAgent
-from agents.code_generation_agent import CodeGenerationAgent
-from agents.coding_assistant_agent import CodingAssistantAgent
-from core.use_cases_tasks import PILLARS, DEVELOPMENT_PHASES
+# Import Quark components with error handling
+try:
+    from agents.nlu_agent import NLUAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import NLUAgent: {e}")
+    NLUAgent = None
+
+try:
+    from agents.retrieval_agent import RetrievalAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import RetrievalAgent: {e}")
+    RetrievalAgent = None
+
+try:
+    from agents.reasoning_agent import ReasoningAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import ReasoningAgent: {e}")
+    ReasoningAgent = None
+
+try:
+    from agents.planning_agent import PlanningAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import PlanningAgent: {e}")
+    PlanningAgent = None
+
+try:
+    from agents.memory_agent import MemoryAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import MemoryAgent: {e}")
+    MemoryAgent = None
+
+try:
+    from agents.metrics_agent import MetricsAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import MetricsAgent: {e}")
+    MetricsAgent = None
+
+try:
+    from agents.self_improvement_agent import SelfImprovementAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import SelfImprovementAgent: {e}")
+    SelfImprovementAgent = None
+
+try:
+    from agents.streaming_agent import StreamingAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import StreamingAgent: {e}")
+    StreamingAgent = None
+
+try:
+    from agents.safety_agent import SafetyAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import SafetyAgent: {e}")
+    SafetyAgent = None
+
+try:
+    from agents.knowledge_graph_agent import KnowledgeGraphAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import KnowledgeGraphAgent: {e}")
+    KnowledgeGraphAgent = None
+
+try:
+    from agents.social_understanding_agent import SocialUnderstandingAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import SocialUnderstandingAgent: {e}")
+    SocialUnderstandingAgent = None
+
+try:
+    from agents.autonomous_decision_agent import AutonomousDecisionAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import AutonomousDecisionAgent: {e}")
+    AutonomousDecisionAgent = None
+
+try:
+    from agents.rag_agent import RAGAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import RAGAgent: {e}")
+    RAGAgent = None
+
+try:
+    from agents.self_monitoring_agent import SelfMonitoringAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import SelfMonitoringAgent: {e}")
+    SelfMonitoringAgent = None
+
+try:
+    from agents.adaptive_model_agent import AdaptiveModelAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import AdaptiveModelAgent: {e}")
+    AdaptiveModelAgent = None
+
+try:
+    from agents.explainability_agent import ExplainabilityAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import ExplainabilityAgent: {e}")
+    ExplainabilityAgent = None
+
+try:
+    from agents.negotiation_agent import NegotiationAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import NegotiationAgent: {e}")
+    NegotiationAgent = None
+
+try:
+    from agents.tool_discovery_agent import ToolDiscoveryAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import ToolDiscoveryAgent: {e}")
+    ToolDiscoveryAgent = None
+
+try:
+    from agents.creative_intelligence_agent import CreativeIntelligenceAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import CreativeIntelligenceAgent: {e}")
+    CreativeIntelligenceAgent = None
+
+try:
+    from agents.emotional_intelligence_agent import EmotionalIntelligenceAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import EmotionalIntelligenceAgent: {e}")
+    EmotionalIntelligenceAgent = None
+
+try:
+    from agents.continuous_learning_agent import ContinuousLearningAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import ContinuousLearningAgent: {e}")
+    ContinuousLearningAgent = None
+
+try:
+    from agents.dataset_discovery_agent import DatasetDiscoveryAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import DatasetDiscoveryAgent: {e}")
+    DatasetDiscoveryAgent = None
+
+try:
+    from agents.continuous_training_agent import ContinuousTrainingAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import ContinuousTrainingAgent: {e}")
+    ContinuousTrainingAgent = None
+
+try:
+    from agents.code_generation_agent import CodeGenerationAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import CodeGenerationAgent: {e}")
+    CodeGenerationAgent = None
+
+try:
+    from agents.coding_assistant_agent import CodingAssistantAgent
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import CodingAssistantAgent: {e}")
+    CodingAssistantAgent = None
+
+try:
+    from core.use_cases_tasks import PILLARS, DEVELOPMENT_PHASES
+except ImportError as e:
+    print(f"⚠️  Warning: Could not import PILLARS, DEVELOPMENT_PHASES: {e}")
+    PILLARS = {}
+    DEVELOPMENT_PHASES = {}
 
 class ComprehensiveTrainingSession:
     """
@@ -167,42 +297,67 @@ class ComprehensiveTrainingSession:
         """Initialize all Quark agents for training."""
         self.logger.info("🤖 Initializing all Quark agents...")
         
-        agent_configs = {
-            # Core Pillars (1-10)
-            "NLU": {"class": NLUAgent, "model": "facebook/bart-large-mnli"},
-            "Retrieval": {"class": RetrievalAgent, "model": "sentence-transformers/all-MiniLM-L6-v2"},
-            "Reasoning": {"class": ReasoningAgent, "model": "google/flan-t5-small"},
-            "Planning": {"class": PlanningAgent, "model": "google/flan-t5-small"},
-            "Memory": {"class": MemoryAgent, "model": None},
-            "Metrics": {"class": MetricsAgent, "model": None},
-            "SelfImprovement": {"class": SelfImprovementAgent, "model": None},
-            "Streaming": {"class": StreamingAgent, "model": None},
-            "Safety": {"class": SafetyAgent, "model": None},
-            
-            # Advanced Intelligence Pillars (11-20)
-            "KnowledgeGraph": {"class": KnowledgeGraphAgent, "model": None},
-            "SocialUnderstanding": {"class": SocialUnderstandingAgent, "model": None},
-            "AutonomousDecision": {"class": AutonomousDecisionAgent, "model": None},
-            "RAG": {"class": RAGAgent, "model": None},
-            
-            # Superintelligence Foundation Pillars (21-30)
-            "SelfMonitoring": {"class": SelfMonitoringAgent, "model": None},
-            "AdaptiveModel": {"class": AdaptiveModelAgent, "model": None},
-            "Explainability": {"class": ExplainabilityAgent, "model": None},
-            "Negotiation": {"class": NegotiationAgent, "model": None},
-            "ToolDiscovery": {"class": ToolDiscoveryAgent, "model": None},
-            
-            # Advanced Intelligence Pillars (31-33)
-            "CreativeIntelligence": {"class": CreativeIntelligenceAgent, "model": None},
-            "EmotionalIntelligence": {"class": EmotionalIntelligenceAgent, "model": None},
-            
-            # Continuous Learning & Development
-            "ContinuousLearning": {"class": ContinuousLearningAgent, "model": None},
-            "DatasetDiscovery": {"class": DatasetDiscoveryAgent, "model": None},
-            "ContinuousTraining": {"class": ContinuousTrainingAgent, "model": None},
-            "CodeGeneration": {"class": CodeGenerationAgent, "model": None},
-            "CodingAssistant": {"class": CodingAssistantAgent, "model": None},
-        }
+        agent_configs = {}
+        
+        # Core Pillars (1-10) - only add if imported successfully
+        if NLUAgent:
+            agent_configs["NLU"] = {"class": NLUAgent, "model": "facebook/bart-large-mnli"}
+        if RetrievalAgent:
+            agent_configs["Retrieval"] = {"class": RetrievalAgent, "model": "sentence-transformers/all-MiniLM-L6-v2"}
+        if ReasoningAgent:
+            agent_configs["Reasoning"] = {"class": ReasoningAgent, "model": "google/flan-t5-small"}
+        if PlanningAgent:
+            agent_configs["Planning"] = {"class": PlanningAgent, "model": "google/flan-t5-small"}
+        if MemoryAgent:
+            agent_configs["Memory"] = {"class": MemoryAgent, "model": None}
+        if MetricsAgent:
+            agent_configs["Metrics"] = {"class": MetricsAgent, "model": None}
+        if SelfImprovementAgent:
+            agent_configs["SelfImprovement"] = {"class": SelfImprovementAgent, "model": None}
+        if StreamingAgent:
+            agent_configs["Streaming"] = {"class": StreamingAgent, "model": None}
+        if SafetyAgent:
+            agent_configs["Safety"] = {"class": SafetyAgent, "model": None}
+        
+        # Advanced Intelligence Pillars (11-20)
+        if KnowledgeGraphAgent:
+            agent_configs["KnowledgeGraph"] = {"class": KnowledgeGraphAgent, "model": None}
+        if SocialUnderstandingAgent:
+            agent_configs["SocialUnderstanding"] = {"class": SocialUnderstandingAgent, "model": None}
+        if AutonomousDecisionAgent:
+            agent_configs["AutonomousDecision"] = {"class": AutonomousDecisionAgent, "model": None}
+        if RAGAgent:
+            agent_configs["RAG"] = {"class": RAGAgent, "model": None}
+        
+        # Superintelligence Foundation Pillars (21-30)
+        if SelfMonitoringAgent:
+            agent_configs["SelfMonitoring"] = {"class": SelfMonitoringAgent, "model": None}
+        if AdaptiveModelAgent:
+            agent_configs["AdaptiveModel"] = {"class": AdaptiveModelAgent, "model": None}
+        if ExplainabilityAgent:
+            agent_configs["Explainability"] = {"class": ExplainabilityAgent, "model": None}
+        if NegotiationAgent:
+            agent_configs["Negotiation"] = {"class": NegotiationAgent, "model": None}
+        if ToolDiscoveryAgent:
+            agent_configs["ToolDiscovery"] = {"class": ToolDiscoveryAgent, "model": None}
+        
+        # Advanced Intelligence Pillars (31-33)
+        if CreativeIntelligenceAgent:
+            agent_configs["CreativeIntelligence"] = {"class": CreativeIntelligenceAgent, "model": None}
+        if EmotionalIntelligenceAgent:
+            agent_configs["EmotionalIntelligence"] = {"class": EmotionalIntelligenceAgent, "model": None}
+        
+        # Continuous Learning & Development
+        if ContinuousLearningAgent:
+            agent_configs["ContinuousLearning"] = {"class": ContinuousLearningAgent, "model": None}
+        if DatasetDiscoveryAgent:
+            agent_configs["DatasetDiscovery"] = {"class": DatasetDiscoveryAgent, "model": None}
+        if ContinuousTrainingAgent:
+            agent_configs["ContinuousTraining"] = {"class": ContinuousTrainingAgent, "model": None}
+        if CodeGenerationAgent:
+            agent_configs["CodeGeneration"] = {"class": CodeGenerationAgent, "model": None}
+        if CodingAssistantAgent:
+            agent_configs["CodingAssistant"] = {"class": CodingAssistantAgent, "model": None}
         
         for agent_name, config in agent_configs.items():
             try:
@@ -602,7 +757,22 @@ class ComprehensiveTrainingSession:
             self.generate_training_datasets()
             
             # Get all pillars to train
-            all_pillars = list(PILLARS.keys())
+            if PILLARS:
+                all_pillars = list(PILLARS.keys())
+            else:
+                # Fallback pillar list if import failed
+                all_pillars = [
+                    "Natural Language Understanding",
+                    "Knowledge Retrieval", 
+                    "Reasoning",
+                    "Planning",
+                    "Memory & Context",
+                    "Metrics & Evaluation",
+                    "Self-Improvement",
+                    "Streaming & Real-Time",
+                    "Safety & Alignment",
+                    "Programming & Code Generation"
+                ]
             self.logger.info(f"📚 Training {len(all_pillars)} pillars: {', '.join(all_pillars)}")
             
             # Train each pillar
