@@ -83,11 +83,11 @@ web = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/camdouglas/quark-local-agi"
+Homepage = "https://github.com/cam-douglas/quark-local-agi"
 Documentation = "https://quark-local-agi.readthedocs.io"
-Repository = "https://github.com/camdouglas/quark-local-agi"
-"Bug Tracker" = "https://github.com/camdouglas/quark-local-agi/issues"
-"Source Code" = "https://github.com/camdouglas/quark-local-agi"
+Repository = "https://github.com/cam-douglas/quark-local-agi"
+"Bug Tracker" = "https://github.com/cam-douglas/quark-local-agi/issues"
+"Source Code" = "https://github.com/cam-douglas/quark-local-agi"
 
 [project.scripts]
 meta-model = "cli.cli:main"

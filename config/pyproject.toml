@@ -93,11 +93,11 @@ meta-deploy = "cli.deployment_cli:main"
 meta-test = "tests.run_tests:main"
 
 [project.urls]
-Homepage = "https://github.com/camdouglas/quark-local-agi"
+Homepage = "https://github.com/cam-douglas/quark-local-agi"
 Documentation = "https://quark-local-agi.readthedocs.io"
-Repository = "https://github.com/camdouglas/quark-local-agi"
-Issues = "https://github.com/camdouglas/quark-local-agi/issues"
-Discussions = "https://github.com/camdouglas/quark-local-agi/discussions"
+Repository = "https://github.com/cam-douglas/quark-local-agi"
+Issues = "https://github.com/cam-douglas/quark-local-agi/issues"
+Discussions = "https://github.com/cam-douglas/quark-local-agi/discussions"
 
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
