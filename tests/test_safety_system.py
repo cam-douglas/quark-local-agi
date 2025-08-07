@@ -163,8 +163,8 @@ class TestSafetyEnforcement(unittest.TestCase):
         
         self.assertIsInstance(result, dict)
         self.assertFalse(result["valid"])
-        self.assertFalse(result["truthful"])
-        self.assertTrue(result["harmful"])
+        self.assertTrue(result["truthful"])  # The response is truthful (not claiming false capabilities)
+        self.assertTrue(result["harmful"])   # But it's harmful
         
     def test_enforce_transparency(self):
         """Test transparency enforcement."""

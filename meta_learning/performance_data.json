@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": 1754545097.069029,
+    "agent_metrics": {
+      "NLU": {
+        "response_time": 2.5,
+        "accuracy": 0.85
+      }
+    },
+    "system_health": {
+      "status": "unknown",
+      "score": 0.0
+    },
+    "alerts": []
+  }
+]

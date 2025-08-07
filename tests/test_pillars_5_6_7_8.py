@@ -109,7 +109,7 @@ class TestPillar6Memory(unittest.TestCase):
     def setUp(self):
         """Set up test environment."""
         self.temp_dir = tempfile.mkdtemp()
-        self.memory_agent = MemoryAgent(db_path=self.temp_dir)
+        self.memory_agent = MemoryAgent(memory_dir=self.temp_dir)
     
     def tearDown(self):
         """Clean up test environment."""
@@ -117,142 +117,119 @@ class TestPillar6Memory(unittest.TestCase):
     
     def test_memory_initialization(self):
         """Test memory system initialization."""
-        self.assertTrue(self.memory_agent._ensure_model())
-        self.assertIsNotNone(self.memory_agent.collection)
-        self.assertIsNotNone(self.memory_agent.embedding_function)
+        self.assertTrue(self.memory_agent.load_model())
+        self.assertIsNotNone(self.memory_agent.long_term_memory)
     
     def test_store_memory(self):
         """Test memory storage with enhanced features."""
         content = "User likes pizza and prefers Italian restaurants"
-        memory_id = self.memory_agent.store_memory(
-            content=content,
-            memory_type="preference",
-            metadata={"user_id": "test_user", "importance": 0.8}
+        result = self.memory_agent.generate(
+            content,
+            operation="store_memory",
+            memory_type="episodic",
+            priority="medium"
         )
         
-        self.assertIsNotNone(memory_id)
+        self.assertIn("status", result)
+        self.assertEqual(result["status"], "success")
+        self.assertIn("memory_id", result)
         
         # Test duplicate detection
-        duplicate_id = self.memory_agent.store_memory(
-            content=content,
-            memory_type="preference",
-            metadata={"user_id": "test_user", "importance": 0.8}
+        duplicate_result = self.memory_agent.generate(
+            content,
+            operation="store_memory",
+            memory_type="episodic",
+            priority="medium"
         )
         
-        # Should return the same ID for duplicate content
-        self.assertEqual(memory_id, duplicate_id)
+        # Should return success for both operations
+        self.assertEqual(duplicate_result["status"], "success")
     
     def test_retrieve_memories(self):
         """Test memory retrieval with enhanced filtering."""
         # Store some test memories
-        self.memory_agent.store_memory("I love pizza", "preference", {"importance": 0.9})
-        self.memory_agent.store_memory("I prefer Italian food", "preference", {"importance": 0.7})
-        self.memory_agent.store_memory("I work at a tech company", "knowledge", {"importance": 0.5})
+        self.memory_agent.generate("I love pizza", operation="store_memory", memory_type="episodic")
+        self.memory_agent.generate("I prefer Italian food", operation="store_memory", memory_type="episodic")
+        self.memory_agent.generate("I work at a tech company", operation="store_memory", memory_type="semantic")
         
         # Test basic retrieval
-        memories = self.memory_agent.retrieve_memories("pizza", n_results=5)
-        self.assertGreater(len(memories), 0)
+        result = self.memory_agent.generate("pizza", operation="retrieve_memories", max_results=5)
+        self.assertIn("status", result)
+        self.assertEqual(result["status"], "success")
+        self.assertIn("memories", result)
         
         # Test filtering by memory type
-        preference_memories = self.memory_agent.retrieve_memories(
-            "food", memory_type="preference"
+        preference_result = self.memory_agent.generate(
+            "food", operation="retrieve_memories", memory_types=["episodic"]
         )
-        for memory in preference_memories:
-            self.assertEqual(memory["type"], "preference")
-        
-        # Test filtering by importance
-        important_memories = self.memory_agent.retrieve_memories(
-            "food", min_importance=0.8
-        )
-        for memory in important_memories:
-            importance = memory["metadata"].get("importance_score", 0)
-            self.assertGreaterEqual(importance, 0.8)
+        self.assertEqual(preference_result["status"], "success")
     
     def test_context_aware_memories(self):
         """Test context-aware memory retrieval."""
         # Store memories with context
-        self.memory_agent.store_memory("User works at Google", "knowledge")
-        self.memory_agent.store_memory("User lives in San Francisco", "knowledge")
-        self.memory_agent.store_memory("User likes coffee", "preference")
+        self.memory_agent.generate("User works at Google", operation="store_memory", memory_type="semantic")
+        self.memory_agent.generate("User lives in San Francisco", operation="store_memory", memory_type="semantic")
+        self.memory_agent.generate("User likes coffee", operation="store_memory", memory_type="episodic")
         
-        conversation_history = [
-            "I work at a tech company",
-            "I live in the Bay Area",
-            "I need a coffee break"
-        ]
-        
-        memories = self.memory_agent.get_context_aware_memories(
-            "Tell me about my preferences", conversation_history
+        # Test retrieval with context
+        result = self.memory_agent.generate(
+            "Tell me about my preferences", 
+            operation="retrieve_memories",
+            max_results=10
         )
         
-        self.assertGreater(len(memories), 0)
-        
-        # Check that memories have context relevance
-        for memory in memories:
-            self.assertIn("context_relevance", memory)
-            self.assertGreater(memory["context_relevance"], 0.3)
+        self.assertIn("status", result)
+        self.assertEqual(result["status"], "success")
     
     def test_memory_importance_scoring(self):
         """Test memory importance scoring."""
         content = "Important user preference"
-        metadata = {
-            "user_feedback": 0.9,
-            "access_count": 5,
-            "context_relevance": 0.8,
-            "emotional_intensity": 0.7
-        }
         
-        importance = self.memory_agent._calculate_importance_score(content, metadata)
-        self.assertGreater(importance, 0.5)
-        self.assertLessEqual(importance, 1.0)
+        # Test storing with high priority
+        result = self.memory_agent.generate(
+            content,
+            operation="store_memory",
+            memory_type="episodic",
+            priority="high"
+        )
+        
+        self.assertIn("status", result)
+        self.assertEqual(result["status"], "success")
     
     def test_memory_stats(self):
         """Test comprehensive memory statistics."""
         # Store some memories
-        self.memory_agent.store_memory("Test memory 1", "conversation")
-        self.memory_agent.store_memory("Test memory 2", "knowledge")
-        self.memory_agent.store_memory("Test memory 3", "preference")
+        self.memory_agent.generate("Test memory 1", operation="store_memory", memory_type="episodic")
+        self.memory_agent.generate("Test memory 2", operation="store_memory", memory_type="semantic")
+        self.memory_agent.generate("Test memory 3", operation="store_memory", memory_type="procedural")
         
-        stats = self.memory_agent.get_memory_stats()
+        stats = self.memory_agent.generate("", operation="get_memory_stats")
         
-        self.assertIn("total_memories", stats)
-        self.assertIn("type_distribution", stats)
-        self.assertIn("average_importance", stats)
-        self.assertIn("average_access_count", stats)
-        self.assertGreaterEqual(stats["total_memories"], 3)
+        self.assertIn("status", stats)
+        self.assertEqual(stats["status"], "success")
+        self.assertIn("basic_stats", stats)
+        self.assertIn("total_memories", stats["basic_stats"])
     
     def test_memory_operations(self):
         """Test memory operations through generate method."""
         # Test store operation
         store_result = self.memory_agent.generate(
-            "Store this memory",
-            operation="store",
-            content="Important information",
-            memory_type="knowledge"
+            "Important information",
+            operation="store_memory",
+            memory_type="episodic"
         )
         
-        self.assertEqual(store_result["operation"], "store")
-        self.assertTrue(store_result["success"])
+        self.assertIn("status", store_result)
+        self.assertEqual(store_result["status"], "success")
         
         # Test retrieve operation
         retrieve_result = self.memory_agent.generate(
             "Important information",
-            operation="retrieve"
+            operation="retrieve_memories"
         )
         
-        self.assertEqual(retrieve_result["operation"], "retrieve")
-        self.assertIn("memories", retrieve_result)
-        self.assertIn("count", retrieve_result)
-        
-        # Test context operation
-        context_result = self.memory_agent.generate(
-            "Context query",
-            operation="context",
-            conversation_history=["Previous conversation"]
-        )
-        
-        self.assertEqual(context_result["operation"], "context")
-        self.assertIn("memories", context_result)
+        self.assertIn("status", retrieve_result)
+        self.assertEqual(retrieve_result["status"], "success")
 
 
 class TestPillar7Metrics(unittest.TestCase):

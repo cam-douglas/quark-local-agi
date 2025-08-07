@@ -18,6 +18,7 @@ from .immutable_safety_rules import (
     enforce_transparency,
     SecurityError
 )
+from .system_protection import get_system_protection, validate_action_safe, set_root_password, request_root_override
 
 logger = logging.getLogger(__name__)
 
@@ -30,16 +31,19 @@ class SafetyEnforcement:
     def __init__(self):
         """Initialize safety enforcement."""
         self.safety_rules = get_safety_rules()
+        self.system_protection = get_system_protection()
         self.action_log = []
         self.blocked_actions = []
         
-    def validate_action(self, action: str, context: Dict[str, Any] = None) -> Dict[str, Any]:
+    def validate_action(self, action: str, context: Dict[str, Any] = None, 
+                       override_session_id: str = None) -> Dict[str, Any]:
         """
         Validate an action against safety rules.
         
         Args:
             action: Description of the action
             context: Additional context
+            override_session_id: Optional override session ID
             
         Returns:
             Validation result with safety assessment
@@ -48,7 +52,32 @@ class SafetyEnforcement:
             context = {}
             
         try:
-            # Check action safety
+            # First, check system protection (most restrictive)
+            system_result = self.system_protection.validate_action(action, context, override_session_id)
+            
+            if not system_result["safe"]:
+                # Check if override is available and requested
+                if system_result.get("override_available", False) and context.get("request_override", False):
+                    override_result = request_root_override(action, context)
+                    if override_result["success"]:
+                        return {
+                            "safe": True,
+                            "reason": "Root override granted",
+                            "blocked": False,
+                            "confirmation_required": False,
+                            "override_session_id": override_result["session_id"]
+                        }
+                
+                self.blocked_actions.append({
+                    "action": action,
+                    "context": context,
+                    "reason": system_result["reason"],
+                    "timestamp": datetime.now(),
+                    "protection_level": "system"
+                })
+                return system_result
+            
+            # Then check general safety rules
             safety_result = check_action_safety(action, context)
             
             # Log the action
@@ -59,7 +88,8 @@ class SafetyEnforcement:
                     "action": action,
                     "context": context,
                     "reason": safety_result["reason"],
-                    "timestamp": datetime.now()
+                    "timestamp": datetime.now(),
+                    "protection_level": "safety"
                 })
                 
             return safety_result
@@ -99,7 +129,24 @@ class SafetyEnforcement:
             # Check for harmful content
             harmful_indicators = [
                 "I can harm", "I can damage", "I can destroy",
-                "I can bypass", "I can ignore", "I can deceive"
+                "I can bypass", "I can ignore", "I can deceive",
+                "I can access your system", "I can modify your files",
+                "I can execute commands", "I can run code",
+                "I can access your data", "I can read your files",
+                "I can delete", "I can remove", "I can format",
+                "I can shutdown", "I can restart", "I can reboot",
+                "I can install", "I can uninstall", "I can modify",
+                "I can change settings", "I can access network",
+                "I can connect to", "I can send data", "I can receive",
+                "I can monitor", "I can track", "I can log",
+                "I can override", "I can disable", "I can enable",
+                "I can grant access", "I can give permissions",
+                "I can take control", "I can assume control",
+                "I can bypass security", "I can ignore safety",
+                "I can disable safety", "I can remove safety",
+                "I can modify safety", "I can change safety",
+                "I can access root", "I can access admin",
+                "I can access sudo", "I can access privileged"
             ]
             
             is_harmful = any(indicator.lower() in response.lower() 

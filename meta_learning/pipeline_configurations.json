@@ -1,0 +1,17 @@
+[
+  {
+    "config_id": "config_1754542816767",
+    "agent_sequence": [
+      "NLU",
+      "Retrieval",
+      "Reasoning"
+    ],
+    "parameters": {
+      "optimization_level": "balanced"
+    },
+    "performance_metrics": {},
+    "created_at": 1754542816.767306,
+    "last_updated": 1754542816.767306,
+    "status": "testing"
+  }
+]

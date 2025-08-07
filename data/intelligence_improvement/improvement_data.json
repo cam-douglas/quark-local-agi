@@ -1,6 +1,6 @@
 {
-  "last_optimization": "2025-08-07T13:45:26.862333",
-  "total_improvements": 33,
+  "last_optimization": "2025-08-07T16:15:05.219072",
+  "total_improvements": 57,
   "learning_patterns": [
     {
       "type": "errors",
@@ -937,302 +937,302 @@
   ],
   "efficiency_gains": [
     {
-      "timestamp": "2025-08-07T13:45:31.867947",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:10.224356",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:45:36.870079",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:15.227158",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:45:41.872111",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:20.229990",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:45:46.874624",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:25.232575",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:45:51.876721",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:30.234851",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:45:56.878950",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:35.237304",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:01.881266",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:40.239697",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:06.883148",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:45.242122",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:11.884816",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:50.244768",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:16.887480",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:15:55.246818",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:21.891406",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:00.251035",
+      "memory_usage": 34.875,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:26.900114",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:05.260981",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:31.902426",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:10.263415",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:36.904780",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:15.265816",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:41.907534",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:20.268479",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:46.910139",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:25.271297",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:51.911474",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:30.273532",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:46:56.914373",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:35.275805",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:01.915630",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:40.278219",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:06.918187",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:45.280708",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:11.923730",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:50.285779",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:16.925546",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:16:55.288581",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:21.928390",
-      "memory_usage": 34.71875,
+      "timestamp": "2025-08-07T16:17:00.290822",
+      "memory_usage": 34.9375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:26.933645",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:05.296634",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:31.936140",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:10.298963",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:36.938625",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:15.301299",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:41.941329",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:20.303963",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:46.944045",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:25.306614",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:51.946764",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:30.308032",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:47:56.949216",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:35.310202",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:01.952394",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:40.314287",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:06.955553",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:45.316821",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:11.957777",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:50.318627",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:16.959443",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:17:55.320769",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:21.962204",
-      "memory_usage": 34.734375,
+      "timestamp": "2025-08-07T16:18:00.323295",
+      "memory_usage": 34.953125,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:26.969750",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:05.333648",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:31.971470",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:10.335365",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:36.974050",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:15.337256",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:41.976547",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:20.339217",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:46.979115",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:25.341922",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:51.984286",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:30.347711",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:48:56.985909",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:35.350510",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:49:01.987652",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:40.352339",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:49:06.989873",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:45.354814",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:49:11.991592",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:50.357604",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:49:16.995202",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:18:55.360253",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:49:21.997407",
-      "memory_usage": 34.75,
+      "timestamp": "2025-08-07T16:19:00.362941",
+      "memory_usage": 34.984375,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:49:27.005333",
-      "memory_usage": 34.765625,
+      "timestamp": "2025-08-07T16:19:05.372052",
+      "memory_usage": 35.015625,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:49:32.007995",
-      "memory_usage": 34.765625,
+      "timestamp": "2025-08-07T16:19:10.374103",
+      "memory_usage": 35.015625,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     },
     {
-      "timestamp": "2025-08-07T13:49:37.010855",
-      "memory_usage": 34.765625,
+      "timestamp": "2025-08-07T16:19:15.375865",
+      "memory_usage": 35.015625,
       "cpu_usage": 0.0,
       "optimizations_applied": []
     }

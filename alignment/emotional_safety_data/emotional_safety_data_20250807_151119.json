@@ -1,0 +1,18 @@
+{
+  "safety_checks": [
+    {
+      "check_id": "emotional_safety_1754543479749",
+      "emotion_type": "EmotionType.JOY",
+      "intensity": "EmotionIntensity.MODERATE",
+      "safety_level": "EmotionalSafetyLevel.SAFE",
+      "risk_factors": [],
+      "safety_score": 1.0,
+      "recommendations": [],
+      "timestamp": 1754543479.7490299,
+      "requires_intervention": false
+    }
+  ],
+  "safety_reports": [],
+  "interventions_applied": [],
+  "export_timestamp": 1754543479.749104
+}

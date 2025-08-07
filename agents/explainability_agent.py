@@ -99,6 +99,7 @@ class ExplainabilityAgent(BaseAgent):
     
     def __init__(self, config: Optional[Dict[str, Any]] = None):
         super().__init__("explainability")
+        self.name = "explainability"  # Add name attribute for tests
         self.config = config or {}
         
         # Add logger
@@ -197,30 +198,42 @@ class ExplainabilityAgent(BaseAgent):
         
         try:
             # Extract explainability parameters
-            action = message.get("action", "explain")
+            message_type = message.get("type", "explanation_request")
             decision_id = message.get("decision_id", "")
             explanation_type = message.get("explanation_type", "decision_rationale")
             transparency_level = message.get("transparency_level", "detailed")
             
-            if action == "explain":
+            if message_type == "explanation_request":
                 result = await self._generate_explanation(decision_id, explanation_type, message)
-            elif action == "audit":
-                result = await self._log_audit_event(message)
-            elif action == "transparency_report":
+                return {
+                    "status": "success",
+                    "explanation": result.get("content", "No explanation available"),
+                    "explanation_id": result.get("explanation_id", ""),
+                    "confidence": result.get("confidence", 0.0)
+                }
+            elif message_type == "transparency_report":
                 result = await self._generate_transparency_report(message)
-            elif action == "get_explanations":
-                result = await self._get_explanations(message)
-            elif action == "get_audit_log":
-                result = await self._get_audit_log(message)
+                return {
+                    "status": "success",
+                    "report": result.get("report_content", "No report available"),
+                    "report_id": result.get("report_id", ""),
+                    "transparency_level": transparency_level
+                }
+            elif message_type == "audit":
+                result = await self._log_audit_event(message)
+                return {
+                    "status": "success",
+                    "audit_event": result
+                }
             else:
-                raise ValueError(f"Unknown action: {action}")
-            
-            return {
-                "status": "success",
-                "action": action,
-                "result": result,
-                "processing_time": time.time() - start_time
-            }
+                # Default to explanation generation
+                result = await self._generate_explanation(decision_id, explanation_type, message)
+                return {
+                    "status": "success",
+                    "explanation": result.get("content", "No explanation available"),
+                    "explanation_id": result.get("explanation_id", ""),
+                    "confidence": result.get("confidence", 0.0)
+                }
             
         except Exception as e:
             self.logger.error(f"Error in explainability: {e}")

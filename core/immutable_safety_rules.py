@@ -90,7 +90,27 @@ class ImmutableSafetyRules:
         "Taking control without permission",
         "Circumventing user controls",
         "Deleting or modifying critical system files",
-        "Accessing personal data without permission"
+        "Accessing personal data without permission",
+        "Executing system commands",
+        "Running shell commands",
+        "Installing software without permission",
+        "Modifying system settings",
+        "Accessing root or admin privileges",
+        "Bypassing user authentication",
+        "Accessing network without permission",
+        "Sending data to external systems",
+        "Modifying user files without permission",
+        "Accessing browser data",
+        "Reading private messages",
+        "Accessing camera or microphone",
+        "Modifying system registry",
+        "Changing system permissions",
+        "Installing malware or viruses",
+        "Creating backdoors",
+        "Accessing encrypted data",
+        "Bypassing firewalls",
+        "Accessing other user accounts",
+        "Modifying system security settings"
     ]
     
     # Required confirmations for high-risk actions
@@ -173,7 +193,20 @@ class ImmutableSafetyRules:
             "bypass security", "ignore safety", "disable safety",
             "access unauthorized", "hack", "exploit", "vulnerability",
             "execute harmful", "run dangerous", "delete system",
-            "modify core", "change core", "edit core"
+            "modify core", "change core", "edit core",
+            "execute command", "run command", "shell command",
+            "system command", "terminal command", "bash command",
+            "install software", "install program", "install app",
+            "modify system", "change system", "edit system",
+            "access root", "access admin", "access sudo",
+            "bypass auth", "bypass login", "bypass password",
+            "access network", "connect network", "send data",
+            "modify files", "delete files", "change files",
+            "access browser", "read messages", "access camera",
+            "access mic", "access microphone", "modify registry",
+            "change permissions", "install malware", "create backdoor",
+            "access encrypted", "bypass firewall", "access accounts",
+            "modify security", "change security", "edit security"
         ]
         
         for pattern in dangerous_patterns:

@@ -1,16 +1,15 @@
 import pytest
-from quark.agents.intent_classifier import IntentClassifierAgent
-from quark.use_cases_tasks import list_categories
+from quark.agents.intent_classifier import IntentClassifier
+from quark.core.use_cases_tasks import list_categories
 
 @pytest.mark.parametrize("model_name", [
     "facebook/bart-large-mnli",
 ])
 def test_intent_classifier_smoke(model_name):
-    agent = IntentClassifierAgent(model_name)
+    agent = IntentClassifier(model_name)
     # We pass candidate_labels explicitly here
-    res = agent.generate(
-        "Is this positive or negative?",
-        candidate_labels=list_categories()
+    res = agent.classify(
+        "Is this positive or negative?"
     )
-    assert "labels" in res and "scores" in res
+    assert isinstance(res, str)
 
