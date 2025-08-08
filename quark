@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# Quark Fast Access Script
+# Provides instant access to Quark AI Assistant
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Function to activate virtual environment
+activate_venv() {
+    if [ -f "$SCRIPT_DIR/venv/bin/activate" ]; then
+        source "$SCRIPT_DIR/venv/bin/activate"
+        return 0
+    else
+        echo "❌ Virtual environment not found. Please run setup first."
+        return 1
+    fi
+}
+
+# Function to show usage
+show_usage() {
+    echo "🎯 Quark AI Assistant"
+    echo ""
+    echo "Usage:"
+    echo "  quark                    - Start interactive mode (python3 main.py)"
+    echo "  quark <question>         - Ask a single question (python3 main.py)"
+    echo "  quark --help             - Show this help"
+    echo "  quark --instant          - Use instant startup mode"
+    echo "  quark --fast             - Use fast startup mode"
+    echo "  quark --full             - Use full system mode (same as default)"
+    echo "  quark --status           - Show system status"
+    echo ""
+    echo "Examples:"
+    echo "  quark 'What is Python?'"
+    echo "  quark 'code a hello world function'"
+    echo "  quark --status"
+    echo ""
+    echo "Default: Uses optimized python3 main.py with lightweight model"
+}
+
+# Main execution
+main() {
+    # Change to the script directory
+    cd "$SCRIPT_DIR"
+    
+    # Activate virtual environment
+    if ! activate_venv; then
+        exit 1
+    fi
+    
+    # Parse arguments
+    if [ $# -eq 0 ]; then
+        # No arguments - start interactive mode with main.py
+        python3 main.py
+    elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+        show_usage
+    elif [ "$1" = "--fast" ]; then
+        # Fast mode
+        python3 main_fast.py
+    elif [ "$1" = "--instant" ]; then
+        # Instant mode
+        python3 main_instant.py
+    elif [ "$1" = "--full" ]; then
+        # Full system mode
+        python3 main.py
+    elif [ "$1" = "--status" ]; then
+        # Status check
+        python3 main.py --status
+    else
+        # Single request mode with main.py
+        python3 main.py --request "$*"
+    fi
+}
+
+# Run main function with all arguments
+main "$@" 
